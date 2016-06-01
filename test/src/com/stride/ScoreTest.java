@@ -20,20 +20,26 @@ public class ScoreTest {
     }
 
     @Test
-    public void shouldReduceScoreForFirstLaunch() {
-        score.launch("D4", "MISS");
-        assertEquals(493, score.score());
-    }
-
-    @Test
-    public void shouldNotReduceScoreWhenFirstLaunchMisses() {
-        score.launch("MISS", "MISS");
+    public void shouldNotReduceScoreWhenAllLaunchesMiss() {
+        score.launch("MISS", "MISS", "MISS");
         assertEquals(501, score.score());
     }
 
     @Test
+    public void shouldReduceScoreForFirstLaunch() {
+        score.launch("D4", "MISS", "MISS");
+        assertEquals(493, score.score());
+    }
+
+    @Test
     public void shouldReduceScoreForSecondLaunch() {
-        score.launch("MISS", "D5");
+        score.launch("MISS", "D5", "MISS");
         assertEquals(491, score.score());
+    }
+
+    @Test
+    public void shouldReduceScoreForThirdLaunch() {
+        score.launch("MISS", "MISS", "T4");
+        assertEquals(489, score.score());
     }
 }
