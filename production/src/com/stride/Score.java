@@ -13,6 +13,9 @@ public class Score {
     }
 
     private int extractScore(String value) {
+        if ("MISS".equals(value)) {
+            return 0;
+        }
         return Integer.parseInt(value.substring(1));
     }
 }
