@@ -13,7 +13,7 @@ public class Score {
         } else if ("MISS".equals(first) && !"MISS".equals(second)) {
             this.tally = 491;
         } else if (!"MISS".equals(first)) {
-            this.tally -= 8;
+            this.tally = 493;
         }
     }
 }
