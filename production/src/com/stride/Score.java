@@ -8,6 +8,8 @@ public class Score {
     }
 
     public void launch(String first) {
-        this.tally -= 8;
+        if (!"MISS".equals(first)) {
+            this.tally -= 8;
+        }
     }
 }

@@ -18,4 +18,11 @@ public class ScoreTest {
         score.launch("D4");
         assertEquals(493, score.score());
     }
+
+    @Test
+    public void shouldNotReduceScoreWhenFirstLaunchMisses() {
+        Score score = new Score();
+        score.launch("MISS");
+        assertEquals(501, score.score());
+    }
 }
