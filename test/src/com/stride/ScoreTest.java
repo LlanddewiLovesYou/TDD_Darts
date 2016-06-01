@@ -12,4 +12,10 @@ public class ScoreTest {
         assertEquals(501, new Score().score());
     }
 
+    @Test
+    public void shouldReduceScoreForFirstThrow() {
+        Score score = new Score();
+        score.launch("D4");
+        assertEquals(493, score.score());
+    }
 }
