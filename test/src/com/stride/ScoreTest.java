@@ -1,10 +1,14 @@
 package com.stride;
 
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;
 
+@RunWith(JUnitParamsRunner.class)
 public class ScoreTest {
 
     private Score score;
@@ -20,26 +24,14 @@ public class ScoreTest {
     }
 
     @Test
-    public void shouldReduceScoreForFirstSingleScoringLaunch() {
-        score.launch("S4", "MISS", "MISS");
-        assertEquals(497, score.score());
-    }
-
-    @Test
-    public void shouldNotReduceScoreWhenAllLaunchesMiss() {
-        score.launch("MISS", "MISS", "MISS");
-        assertEquals(501, score.score());
-    }
-
-    @Test
-    public void shouldReduceScoreForSecondSingleScoringLaunch() {
-        score.launch("MISS", "S10", "MISS");
-        assertEquals(491, score.score());
-    }
-
-    @Test
-    public void shouldReduceScoreForThirdSingleScoringLaunch() {
-        score.launch("MISS", "MISS", "S20");
-        assertEquals(481, score.score());
+    @Parameters({
+            "501,MISS,MISS,MISS",
+            "497,S4,MISS,MISS",
+            "491,MISS,S10,MISS",
+            "481,MISS,MISS,S20"
+    })
+    public void shouldReduceScoreAppropriately(int expected, String first, String second, String third) {
+        score.launch(first, second, third);
+        assertEquals(expected, score.score());
     }
 }
