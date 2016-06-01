@@ -8,6 +8,11 @@ public class Score {
     }
 
     public void launch(String first) {
-        this.tally = 497;
+        int score = extractScore(first);
+        this.tally -= score;
+    }
+
+    private int extractScore(String value) {
+        return Integer.parseInt(value.substring(1));
     }
 }
