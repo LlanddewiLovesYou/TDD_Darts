@@ -12,9 +12,9 @@ public class ScoreTest {
     }
 
     @Test
-    public void shouldReduceScoreForFirstThrow() {
+    public void shouldReduceScoreForFirstSingleLaunch() {
         Score score = new Score();
-        score.launch("D4");
-        assertEquals(493, score.score());
+        score.launch("S4");
+        assertEquals(497, score.score());
     }
 }

@@ -8,6 +8,6 @@ public class Score {
     }
 
     public void launch(String first) {
-        this.tally = 493;
+        this.tally = 497;
     }
 }
