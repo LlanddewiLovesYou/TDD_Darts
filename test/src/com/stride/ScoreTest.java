@@ -1,6 +1,5 @@
 package com.stride;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,13 +21,19 @@ public class ScoreTest {
 
     @Test
     public void shouldReduceScoreForFirstLaunch() {
-        score.launch("D4");
+        score.launch("D4", "MISS");
         assertEquals(493, score.score());
     }
 
     @Test
     public void shouldNotReduceScoreWhenFirstLaunchMisses() {
-        score.launch("MISS");
+        score.launch("MISS", "MISS");
         assertEquals(501, score.score());
+    }
+
+    @Test
+    public void shouldReduceScoreForSecondLaunch() {
+        score.launch("MISS", "D5");
+        assertEquals(491, score.score());
     }
 }

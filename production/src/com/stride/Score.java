@@ -7,9 +7,12 @@ public class Score {
         return tally;
     }
 
-    public void launch(String first) {
+    public void launch(String first, String second) {
         if (!"MISS".equals(first)) {
             this.tally -= 8;
+        }
+        if (!"MISS".equals(second)) {
+            this.tally = 491;
         }
     }
 }
