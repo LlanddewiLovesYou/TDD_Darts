@@ -7,8 +7,8 @@ public class Score {
         return tally;
     }
 
-    public void launch(String first) {
-        int score = extractScore(first);
+    public void launch(String first, String second) {
+        int score = extractScore(first) + extractScore(second);
         this.tally -= score;
     }
 
