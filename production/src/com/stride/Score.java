@@ -32,17 +32,18 @@ public class Score {
             return 50;
         }
 
-        String type = value.substring(0, 1);
+        Matcher matcher = SCORE_PATTERN.matcher(value);
+        if (!matcher.matches()) {
+            throw new IllegalArgumentException(String.format("Invalid score %s", value));
+        }
+
+        String type = matcher.group(1);
+
         int multiplier = 1;
         if (LAUNCH_DOUBLE.equals(type)) {
             multiplier = 2;
         } else if (LAUNCH_TRIPLE.equals(type)) {
             multiplier = 3;
-        }
-
-        Matcher matcher = SCORE_PATTERN.matcher(value);
-        if (!matcher.matches()) {
-            throw new IllegalArgumentException(String.format("Invalid score %s", value));
         }
 
         final int amount = Integer.parseInt(value.substring(1));
