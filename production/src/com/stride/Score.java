@@ -37,6 +37,9 @@ public class Score {
     }
 
     public void launch(String first, String second, String third) {
+        if (first == null || second == null || third == null) {
+            throw new IllegalArgumentException("Null launch");
+        }
         this.tally -= extractScore(first) + extractScore(second) + extractScore(third);
     }
 

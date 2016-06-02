@@ -1,5 +1,6 @@
 package com.stride;
 
+import com.sun.javaws.exceptions.InvalidArgumentException;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.Assert;
@@ -64,5 +65,26 @@ public class ScoreTest {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Invalid launch INVALID");
         score.launch("INVALID", "MISS", "MISS");
+    }
+
+    @Test
+    public void shouldRejectNullFirstLaunch() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Null launch");
+        score.launch(null, "MISS", "MISS");
+    }
+
+    @Test
+    public void shouldRejectNullSecondLaunch() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Null launch");
+        score.launch("MISS", null, "MISS");
+    }
+
+    @Test
+    public void shouldRejectNullThirdLaunch() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Null launch");
+        score.launch("MISS", "MISS", null);
     }
 }
