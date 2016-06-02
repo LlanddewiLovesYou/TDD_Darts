@@ -58,4 +58,11 @@ public class ScoreTest {
         expectedException.expectMessage("Invalid score S0");
         score.launch("S0", "MISS", "MISS");
     }
+
+    @Test
+    public void shouldRejectPoorlyFormattedLaunch() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Invalid score INVALID");
+        score.launch("INVALID", "MISS", "MISS");
+    }
 }
