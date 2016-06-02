@@ -86,4 +86,10 @@ public class ScoreTest {
         expectedException.expectMessage("Null launch");
         score.launch("PASS", "PASS", null);
     }
+
+    @Test
+    public void shouldBeAbleToConstructWithArbitraryScore() {
+        Score winnableScore = new Score(100);
+        assertEquals(100, winnableScore.score());
+    }
 }

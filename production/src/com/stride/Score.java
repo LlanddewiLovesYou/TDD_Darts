@@ -32,6 +32,12 @@ public class Score {
 
     private int tally = 501;
 
+    public Score() {}
+
+    public Score(int tally) {
+        this.tally = tally;
+    }
+
     public int score() {
         return tally;
     }
