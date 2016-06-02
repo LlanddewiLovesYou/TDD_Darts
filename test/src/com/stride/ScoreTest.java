@@ -28,7 +28,8 @@ public class ScoreTest {
             "501,MISS,MISS,MISS",
             "497,S4,MISS,MISS",
             "491,MISS,S10,MISS",
-            "481,MISS,MISS,S20"
+            "481,MISS,MISS,S20",
+            "471,D3,D5,D7"
     })
     public void shouldReduceScoreAppropriately(int expected, String first, String second, String third) {
         score.launch(first, second, third);

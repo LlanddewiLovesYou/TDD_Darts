@@ -15,6 +15,11 @@ public class Score {
         if ("MISS".equals(value)) {
             return 0;
         }
-        return Integer.parseInt(value.substring(1));
+        String type = value.substring(0, 1);
+        int multiplier = 1;
+        if ("D".equals(type)) {
+            multiplier = 2;
+        }
+        return Integer.parseInt(value.substring(1)) * multiplier;
     }
 }
