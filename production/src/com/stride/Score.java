@@ -53,10 +53,13 @@ public class Score {
         }
 
         Matcher matcher = SCORE_PATTERN.matcher(value);
+        validateLaunchValue(value, matcher);
+        return Integer.parseInt(matcher.group(2)) * LAUNCH_MULTIPLIERS.get(matcher.group(1));
+    }
+
+    private void validateLaunchValue(String value, Matcher matcher) {
         if (!matcher.matches()) {
             throw new IllegalArgumentException(String.format("Invalid launch %s", value));
         }
-
-        return Integer.parseInt(matcher.group(2)) * LAUNCH_MULTIPLIERS.get(matcher.group(1));
     }
 }
