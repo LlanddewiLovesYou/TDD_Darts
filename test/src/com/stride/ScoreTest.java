@@ -110,7 +110,8 @@ public class ScoreTest {
 
     @Test
     public void shouldSetScoreToZeroWhenItReachesZeroAndThirdLaunchIsADouble() {
-        winnableScore.launch("T20", "D18", "D2");
+        winnableScore = new Score(40);
+        winnableScore.launch("T12", "D2", "MISS");
         assertEquals(0, winnableScore.score());
     }
 }
