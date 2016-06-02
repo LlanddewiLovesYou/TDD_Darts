@@ -18,11 +18,12 @@ public class ScoreTest {
     public ExpectedException expectedException = ExpectedException.none();
 
     private Score score;
-    private Score winnableScore = new Score(100);
+    private Score winnableScore;
 
     @Before
     public void setUp() throws Exception {
         score = new Score();
+        winnableScore = new Score(40);
     }
 
     @Test
@@ -91,26 +92,23 @@ public class ScoreTest {
 
     @Test
     public void shouldBeAbleToConstructWithArbitraryScore() {
-        assertEquals(100, winnableScore.score());
+        assertEquals(40, winnableScore.score());
     }
 
     @Test
     public void shouldResetScoreWhenReducedToOne() {
-        winnableScore = new Score(40);
         winnableScore.launch("T12", "D1", "S1");
         assertEquals(40, winnableScore.score());
     }
 
     @Test
     public void shouldAllowScoreToReachTwo() {
-        winnableScore = new Score(40);
         winnableScore.launch("T12", "D1", "MISS");
         assertEquals(2, winnableScore.score());
     }
 
     @Test
     public void shouldSetScoreToZeroWhenItReachesZeroAndThirdLaunchIsADouble() {
-        winnableScore = new Score(40);
         winnableScore.launch("T12", "D2", "MISS");
         assertEquals(0, winnableScore.score());
     }
