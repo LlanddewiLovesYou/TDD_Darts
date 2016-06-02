@@ -48,21 +48,21 @@ public class ScoreTest {
     @Test
     public void shouldRejectLaunchesGreaterThan20() {
         expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Invalid score S21");
+        expectedException.expectMessage("Invalid launch S21");
         score.launch("S21", "MISS", "MISS");
     }
 
     @Test
     public void shouldRejectLaunchesLessThan1() {
         expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Invalid score S0");
+        expectedException.expectMessage("Invalid launch S0");
         score.launch("S0", "MISS", "MISS");
     }
 
     @Test
     public void shouldRejectPoorlyFormattedLaunch() {
         expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Invalid score INVALID");
+        expectedException.expectMessage("Invalid launch INVALID");
         score.launch("INVALID", "MISS", "MISS");
     }
 }

@@ -47,7 +47,7 @@ public class Score {
 
         Matcher matcher = SCORE_PATTERN.matcher(value);
         if (!matcher.matches()) {
-            throw new IllegalArgumentException(String.format("Invalid score %s", value));
+            throw new IllegalArgumentException(String.format("Invalid launch %s", value));
         }
 
         return Integer.parseInt(matcher.group(2)) * LAUNCH_MULTIPLIERS.get(matcher.group(1));
