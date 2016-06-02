@@ -31,10 +31,10 @@ public class ScoreTest {
 
     @Test
     @Parameters({
-            "501,PASS,PASS,PASS",
-            "497,S4,PASS,PASS",
-            "491,PASS,S10,PASS",
-            "481,PASS,PASS,S20",
+            "501,MISS,MISS,MISS",
+            "497,S4,MISS,MISS",
+            "491,MISS,S10,MISS",
+            "481,MISS,MISS,S20",
             "471,D3,D5,D7",
             "456,T3,T5,T7",
             "426,OR,OR,OR",
@@ -49,42 +49,42 @@ public class ScoreTest {
     public void shouldRejectLaunchesGreaterThan20() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Invalid launch S21");
-        score.launch("S21", "PASS", "PASS");
+        score.launch("S21", "MISS", "MISS");
     }
 
     @Test
     public void shouldRejectLaunchesLessThan1() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Invalid launch S0");
-        score.launch("S0", "PASS", "PASS");
+        score.launch("S0", "MISS", "MISS");
     }
 
     @Test
     public void shouldRejectPoorlyFormattedLaunch() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Invalid launch INVALID");
-        score.launch("INVALID", "PASS", "PASS");
+        score.launch("INVALID", "MISS", "MISS");
     }
 
     @Test
     public void shouldRejectNullFirstLaunch() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Null launch");
-        score.launch(null, "PASS", "PASS");
+        score.launch(null, "MISS", "MISS");
     }
 
     @Test
     public void shouldRejectNullSecondLaunch() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Null launch");
-        score.launch("PASS", null, "PASS");
+        score.launch("MISS", null, "MISS");
     }
 
     @Test
     public void shouldRejectNullThirdLaunch() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Null launch");
-        score.launch("PASS", "PASS", null);
+        score.launch("MISS", "MISS", null);
     }
 
     @Test
@@ -100,7 +100,7 @@ public class ScoreTest {
 
     @Test
     public void shouldAllowScoreToReachTwo() {
-        winnableScore.launch("T20", "D19", "PASS");
+        winnableScore.launch("T20", "D19", "MISS");
         assertEquals(2, winnableScore.score());
     }
 }
