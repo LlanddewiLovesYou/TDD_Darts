@@ -51,4 +51,11 @@ public class ScoreTest {
         expectedException.expectMessage("Invalid score S21");
         score.launch("S21", "MISS", "MISS");
     }
+
+    @Test
+    public void shouldRejectLaunchesLessThan1() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Invalid score S0");
+        score.launch("S0", "MISS", "MISS");
+    }
 }

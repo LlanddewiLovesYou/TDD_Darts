@@ -34,8 +34,8 @@ public class Score {
             multiplier = 3;
         }
         final int amount = Integer.parseInt(value.substring(1));
-        if (amount > 20) {
-            throw new IllegalArgumentException("Invalid score S21");
+        if (amount < 1 || amount > 20) {
+            throw new IllegalArgumentException(String.format("Invalid score %s", value));
         }
         return amount * multiplier;
     }
