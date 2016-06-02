@@ -37,10 +37,14 @@ public class Score {
     }
 
     public void launch(String first, String second, String third) {
+        ensureNonNullParameters(first, second, third);
+        this.tally -= extractScore(first) + extractScore(second) + extractScore(third);
+    }
+
+    private void ensureNonNullParameters(String first, String second, String third) {
         if (first == null || second == null || third == null) {
             throw new IllegalArgumentException("Null launch");
         }
-        this.tally -= extractScore(first) + extractScore(second) + extractScore(third);
     }
 
     private int extractScore(String value) {
