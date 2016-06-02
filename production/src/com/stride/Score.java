@@ -1,5 +1,7 @@
 package com.stride;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -7,11 +9,17 @@ public class Score {
 
     private static final Pattern SCORE_PATTERN = Pattern.compile("([SDT])(20|1[0-9]|[1-9])");
 
-    private static final String LAUNCH_MISS = "MISS";
     private static final String LAUNCH_DOUBLE = "D";
     private static final String LAUNCH_TRIPLE = "T";
+    private static final String LAUNCH_MISS = "MISS";
     private static final String LAUNCH_OUTER_RING = "OR";
     private static final String LAUNCH_INNER_RING = "IR";
+
+    private static final Map<String, Integer> LAUNCH_WORDS = new HashMap<String, Integer>(){{
+        this.put(LAUNCH_MISS, 0);
+        this.put(LAUNCH_OUTER_RING, 25);
+        this.put(LAUNCH_INNER_RING, 50);
+    }};
 
     private int tally = 501;
 
@@ -24,12 +32,8 @@ public class Score {
     }
 
     private int extractScore(String value) {
-        if (LAUNCH_MISS.equals(value)) {
-            return 0;
-        } else if (LAUNCH_OUTER_RING.equals(value)) {
-            return 25;
-        } else if (LAUNCH_INNER_RING.equals(value)) {
-            return 50;
+        if (LAUNCH_WORDS.containsKey(value)) {
+            return LAUNCH_WORDS.get(value);
         }
 
         Matcher matcher = SCORE_PATTERN.matcher(value);
