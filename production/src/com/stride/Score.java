@@ -9,8 +9,6 @@ public class Score {
 
     private static final Pattern SCORE_PATTERN = Pattern.compile("([SDT])(20|1[0-9]|[1-9])");
 
-    private static final String LAUNCH_DOUBLE = "D";
-    private static final String LAUNCH_TRIPLE = "T";
     private static final String LAUNCH_MISS = "MISS";
     private static final String LAUNCH_OUTER_RING = "OR";
     private static final String LAUNCH_INNER_RING = "IR";
@@ -19,6 +17,17 @@ public class Score {
         this.put(LAUNCH_MISS, 0);
         this.put(LAUNCH_OUTER_RING, 25);
         this.put(LAUNCH_INNER_RING, 50);
+    }};
+
+    private static final String LAUNCH_SINGLE = "S";
+    private static final String LAUNCH_DOUBLE = "D";
+    private static final String LAUNCH_TRIPLE = "T";
+
+
+    private static final Map<String, Integer> LAUNCH_MULTIPLIERS = new HashMap<String, Integer>() {{
+        this.put(LAUNCH_SINGLE, 1);
+        this.put(LAUNCH_DOUBLE, 2);
+        this.put(LAUNCH_TRIPLE, 3);
     }};
 
     private int tally = 501;
@@ -41,15 +50,6 @@ public class Score {
             throw new IllegalArgumentException(String.format("Invalid score %s", value));
         }
 
-        String type = matcher.group(1);
-
-        int multiplier = 1;
-        if (LAUNCH_DOUBLE.equals(type)) {
-            multiplier = 2;
-        } else if (LAUNCH_TRIPLE.equals(type)) {
-            multiplier = 3;
-        }
-
-        return Integer.parseInt(matcher.group(2)) * multiplier;
+        return Integer.parseInt(matcher.group(2)) * LAUNCH_MULTIPLIERS.get(matcher.group(1));
     }
 }
