@@ -33,6 +33,7 @@ public class ScoreTest {
     @Test
     @Parameters({
             "501,MISS,MISS,MISS",
+            "501,PASS,PASS,PASS",
             "497,S4,MISS,MISS",
             "491,MISS,S10,MISS",
             "481,MISS,MISS,S20",
