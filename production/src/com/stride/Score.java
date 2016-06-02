@@ -47,7 +47,7 @@ public class Score {
     public void launch(String first, String second, String third) {
         ensureNonNullParameters(first, second, third);
         int score = extractScore(first) + extractScore(second) + extractScore(third);
-        if (this.tally - score > 2) {
+        if (this.tally - score >= 2) {
             this.tally -= score;
         }
     }
