@@ -18,6 +18,7 @@ public class ScoreTest {
     public ExpectedException expectedException = ExpectedException.none();
 
     private Score score;
+    private final Score winnableScore = new Score(100);
 
     @Before
     public void setUp() throws Exception {
@@ -89,7 +90,12 @@ public class ScoreTest {
 
     @Test
     public void shouldBeAbleToConstructWithArbitraryScore() {
-        Score winnableScore = new Score(100);
+        assertEquals(100, winnableScore.score());
+    }
+
+    @Test
+    public void shouldResetScoreWhenReducedBelowTwoButNotZero() {
+        winnableScore.launch("T20", "D19", "S1");
         assertEquals(100, winnableScore.score());
     }
 }
