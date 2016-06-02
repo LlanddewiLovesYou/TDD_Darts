@@ -19,6 +19,8 @@ public class Score {
         int multiplier = 1;
         if ("D".equals(type)) {
             multiplier = 2;
+        } else if ("T".equals(type)) {
+            multiplier = 3;
         }
         return Integer.parseInt(value.substring(1)) * multiplier;
     }
