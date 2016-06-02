@@ -2,14 +2,20 @@ package com.stride;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;
 
 @RunWith(JUnitParamsRunner.class)
 public class ScoreTest {
+
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
 
     private Score score;
 
@@ -37,5 +43,12 @@ public class ScoreTest {
     public void shouldReduceScoreAppropriately(int expected, String first, String second, String third) {
         score.launch(first, second, third);
         assertEquals(expected, score.score());
+    }
+
+    @Test
+    public void shouldRejectLaunchesGreaterThan20() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Invalid score S21");
+        score.launch("S21", "MISS", "MISS");
     }
 }

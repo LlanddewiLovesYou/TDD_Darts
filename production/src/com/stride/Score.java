@@ -33,6 +33,10 @@ public class Score {
         } else if (LAUNCH_TRIPLE.equals(type)) {
             multiplier = 3;
         }
-        return Integer.parseInt(value.substring(1)) * multiplier;
+        final int amount = Integer.parseInt(value.substring(1));
+        if (amount > 20) {
+            throw new IllegalArgumentException("Invalid score S21");
+        }
+        return amount * multiplier;
     }
 }
