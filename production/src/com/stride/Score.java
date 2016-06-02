@@ -30,9 +30,11 @@ public class Score {
         this.put(LAUNCH_TRIPLE, 3);
     }};
 
-    private int tally = 501;
+    private int tally;
 
-    public Score() {}
+    public Score() {
+        this(501);
+    }
 
     public Score(int tally) {
         this.tally = tally;
