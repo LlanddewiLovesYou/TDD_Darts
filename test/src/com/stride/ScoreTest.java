@@ -30,7 +30,8 @@ public class ScoreTest {
             "491,MISS,S10,MISS",
             "481,MISS,MISS,S20",
             "471,D3,D5,D7",
-            "456,T3,T5,T7"
+            "456,T3,T5,T7",
+            "426,OR,OR,OR"
     })
     public void shouldReduceScoreAppropriately(int expected, String first, String second, String third) {
         score.launch(first, second, third);

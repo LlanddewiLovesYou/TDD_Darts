@@ -5,6 +5,7 @@ public class Score {
     private static final String LAUNCH_MISS = "MISS";
     public static final String LAUNCH_DOUBLE = "D";
     public static final String LAUNCH_TRIPLE = "T";
+    private static final String LAUNCH_OUTER_RING = "OR";
 
     private int tally = 501;
 
@@ -19,6 +20,8 @@ public class Score {
     private int extractScore(String value) {
         if (LAUNCH_MISS.equals(value)) {
             return 0;
+        } else if (LAUNCH_OUTER_RING.equals(value)) {
+            return 25;
         }
         String type = value.substring(0, 1);
         int multiplier = 1;
