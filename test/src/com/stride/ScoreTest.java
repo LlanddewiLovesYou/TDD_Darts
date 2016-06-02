@@ -2,6 +2,7 @@ package com.stride;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -30,10 +31,10 @@ public class ScoreTest {
 
     @Test
     @Parameters({
-            "501,MISS,MISS,MISS",
-            "497,S4,MISS,MISS",
-            "491,MISS,S10,MISS",
-            "481,MISS,MISS,S20",
+            "501,PASS,PASS,PASS",
+            "497,S4,PASS,PASS",
+            "491,PASS,S10,PASS",
+            "481,PASS,PASS,S20",
             "471,D3,D5,D7",
             "456,T3,T5,T7",
             "426,OR,OR,OR",
@@ -48,41 +49,41 @@ public class ScoreTest {
     public void shouldRejectLaunchesGreaterThan20() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Invalid launch S21");
-        score.launch("S21", "MISS", "MISS");
+        score.launch("S21", "PASS", "PASS");
     }
 
     @Test
     public void shouldRejectLaunchesLessThan1() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Invalid launch S0");
-        score.launch("S0", "MISS", "MISS");
+        score.launch("S0", "PASS", "PASS");
     }
 
     @Test
     public void shouldRejectPoorlyFormattedLaunch() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Invalid launch INVALID");
-        score.launch("INVALID", "MISS", "MISS");
+        score.launch("INVALID", "PASS", "PASS");
     }
 
     @Test
     public void shouldRejectNullFirstLaunch() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Null launch");
-        score.launch(null, "MISS", "MISS");
+        score.launch(null, "PASS", "PASS");
     }
 
     @Test
     public void shouldRejectNullSecondLaunch() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Null launch");
-        score.launch("MISS", null, "MISS");
+        score.launch("PASS", null, "PASS");
     }
 
     @Test
     public void shouldRejectNullThirdLaunch() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Null launch");
-        score.launch("MISS", "MISS", null);
+        score.launch("PASS", "PASS", null);
     }
 }

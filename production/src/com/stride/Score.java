@@ -9,12 +9,12 @@ public class Score {
 
     private static final Pattern SCORE_PATTERN = Pattern.compile("([SDT])(20|1[0-9]|[1-9])");
 
-    private static final String LAUNCH_MISS = "MISS";
+    private static final String LAUNCH_PASS = "PASS";
     private static final String LAUNCH_OUTER_RING = "OR";
     private static final String LAUNCH_INNER_RING = "IR";
 
     private static final Map<String, Integer> LAUNCH_WORDS = new HashMap<String, Integer>(){{
-        this.put(LAUNCH_MISS, 0);
+        this.put(LAUNCH_PASS, 0);
         this.put(LAUNCH_OUTER_RING, 25);
         this.put(LAUNCH_INNER_RING, 50);
     }};
