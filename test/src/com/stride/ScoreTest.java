@@ -2,6 +2,7 @@ package com.stride;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -102,5 +103,11 @@ public class ScoreTest {
     public void shouldAllowScoreToReachTwo() {
         winnableScore.launch("T20", "D19", "MISS");
         assertEquals(2, winnableScore.score());
+    }
+
+    @Test
+    public void shouldSetScoreToZeroWhenItReachesZeroAndThirdLaunchIsADouble() {
+        winnableScore.launch("T20", "D18", "D2");
+        assertEquals(0, winnableScore.score());
     }
 }
