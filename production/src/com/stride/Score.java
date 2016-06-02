@@ -1,6 +1,11 @@
 package com.stride;
 
 public class Score {
+
+    private static final String LAUNCH_MISS = "MISS";
+    public static final String LAUNCH_DOUBLE = "D";
+    public static final String LAUNCH_TRIPLE = "T";
+
     private int tally = 501;
 
     public int score() {
@@ -12,14 +17,14 @@ public class Score {
     }
 
     private int extractScore(String value) {
-        if ("MISS".equals(value)) {
+        if (LAUNCH_MISS.equals(value)) {
             return 0;
         }
         String type = value.substring(0, 1);
         int multiplier = 1;
-        if ("D".equals(type)) {
+        if (LAUNCH_DOUBLE.equals(type)) {
             multiplier = 2;
-        } else if ("T".equals(type)) {
+        } else if (LAUNCH_TRIPLE.equals(type)) {
             multiplier = 3;
         }
         return Integer.parseInt(value.substring(1)) * multiplier;
