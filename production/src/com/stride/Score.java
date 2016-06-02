@@ -46,7 +46,6 @@ public class Score {
             multiplier = 3;
         }
 
-        final int amount = Integer.parseInt(value.substring(1));
-        return amount * multiplier;
+        return Integer.parseInt(matcher.group(2)) * multiplier;
     }
 }
