@@ -22,7 +22,7 @@ public class ScoreTest {
     @Before
     public void setUp() throws Exception {
         score = new Score();
-        winnableScore = new Score(40);
+        winnableScore = new Score(30);
     }
 
     @Test
@@ -87,7 +87,7 @@ public class ScoreTest {
 
     @Test
     public void shouldBeAbleToConstructWithArbitraryScore() {
-        assertEquals(40, winnableScore.score());
+        assertEquals(30, winnableScore.score());
     }
 
     @Test
@@ -97,21 +97,18 @@ public class ScoreTest {
             "D14,S1,PASS"
     })
     public void resetScore(String first, String second, String third) {
-        winnableScore = new Score(30);
         winnableScore.turn(first, second, third);
         assertEquals(30, winnableScore.score());
     }
 
     @Test
     public void shouldAllowScoreToReachTwo() {
-        winnableScore = new Score(30);
         winnableScore.turn("D14", "MISS", "MISS");
         assertEquals(2, winnableScore.score());
     }
 
     @Test
     public void shouldSetScoreToZeroWhenItReachesZeroAndThirdThrowIsADouble() {
-        winnableScore = new Score(30);
         winnableScore.turn("T8", "S4", "D1");
         assertEquals(0, winnableScore.score());
     }
