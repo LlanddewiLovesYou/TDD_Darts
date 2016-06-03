@@ -169,12 +169,15 @@ public class ScoreTest {
 
     @Test
     @Parameters({
-            "20,D10",
-            "50,IR"
+            "20,D10,PASS,PASS",
+            "50,IR,PASS,PASS",
+            "30,S10,D10,PASS",
+            "60,S10,IR,PASS"
     })
-    public void shouldSetScoreToZeroOnFirstThrowWhenItQualifies(int startingScore, String first) {
+    public void shouldSetScoreToZeroWhenItQualifies(
+            int startingScore, String first, String second, String third) {
         winnableScore = new Score(startingScore);
-        winnableScore.turn(first, "PASS", "PASS");
+        winnableScore.turn(first, second, third);
         assertEquals(0, winnableScore.score());
     }
 

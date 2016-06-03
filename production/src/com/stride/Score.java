@@ -72,7 +72,11 @@ public class Score {
         }
 
         runningTally = runningTally - secondScore;
-        if (runningTally == 0 && !isQualifyingFinalThrow(second)) {
+        if (runningTally == 0) {
+            if(isAnActualQualifyingThrow(second))
+            {
+                this.tally = runningTally;
+            }
             return;
         }
 
