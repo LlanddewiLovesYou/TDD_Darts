@@ -57,7 +57,12 @@ public class Score {
         ensureThereAreNoFurtherThrowsOnceScorePassesBelowTwo(second, third, firstScore, secondScore);
 
         int runningTally = this.tally - firstScore;
-        if (runningTally == 0 && !isEndingThrow(first)) {
+        if (runningTally == 0 && !isQualifyingFinalThrow(first)) {
+            return;
+        }
+
+        runningTally = runningTally - secondScore;
+        if (runningTally == 0 && !isQualifyingFinalThrow(second)) {
             return;
         }
 
@@ -69,7 +74,7 @@ public class Score {
         }
     }
 
-    private boolean isEndingThrow(String value) {
+    private boolean isQualifyingFinalThrow(String value) {
         return false;
     }
 

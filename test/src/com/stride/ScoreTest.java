@@ -165,4 +165,15 @@ public class ScoreTest {
         winnableScore.turn("OR", "PASS", "PASS");
         assertEquals(25, winnableScore.score());
     }
+
+    @Test
+    @Parameters({
+            "S16,S14,PASS",
+            "S3,T9,PASS",
+            "S5,OR,PASS"
+    })
+    public void shouldResetScoreWhenItReachesZeroAndButDoesNotQualify(String first, String second, String third) {
+        winnableScore.turn(first, second, third);
+        assertEquals(30, winnableScore.score());
+    }
 }
