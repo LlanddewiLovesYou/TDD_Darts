@@ -50,8 +50,10 @@ public class Score {
         ensureThereIsAtLeastOneThrow(first, second, third);
         ensureNonNullParameters(first, second, third);
         int score = extractScore(first) + extractScore(second) + extractScore(third);
-        if (this.tally - score >= 2 || (this.tally - score) == 0) {
-            this.tally -= score;
+
+        int newTally = this.tally - score;
+        if (newTally >= 2 || newTally == 0) {
+            this.tally = newTally;
         }
     }
 
