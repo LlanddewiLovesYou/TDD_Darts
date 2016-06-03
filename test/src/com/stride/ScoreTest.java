@@ -172,7 +172,9 @@ public class ScoreTest {
             "20,D10,PASS,PASS",
             "50,IR,PASS,PASS",
             "30,S10,D10,PASS",
-            "60,S10,IR,PASS"
+            "60,S10,IR,PASS",
+            "30,S10,S10,D5",
+            "60,S5,S5,IR"
     })
     public void shouldSetScoreToZeroWhenItQualifies(
             int startingScore, String first, String second, String third) {

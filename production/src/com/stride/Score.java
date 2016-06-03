@@ -82,7 +82,10 @@ public class Score {
 
         int thirdScore = extractScore(third);
         runningTally = runningTally - thirdScore;
-        if (runningTally == 0 && !isQualifyingFinalThrow(third)) {
+        if (runningTally == 0) {
+            if (isAnActualQualifyingThrow(third)) {
+                this.tally = runningTally;
+            }
             return;
         }
 
