@@ -151,4 +151,18 @@ public class ScoreTest {
         winnableScore.turn("T10", "PASS", "PASS");
         assertEquals(30, winnableScore.score());
     }
+
+    @Test
+    public void shouldResetScoreWhenItReachesZeroForFirstArgumentOfSingleMultipler() {
+        winnableScore = new Score(20);
+        winnableScore.turn("S20", "PASS", "PASS");
+        assertEquals(20, winnableScore.score());
+    }
+
+    @Test
+    public void shouldResetScoreWhenItReachesZeroForFirstArgumentOfOuterRing() {
+        winnableScore = new Score(25);
+        winnableScore.turn("OR", "PASS", "PASS");
+        assertEquals(25, winnableScore.score());
+    }
 }

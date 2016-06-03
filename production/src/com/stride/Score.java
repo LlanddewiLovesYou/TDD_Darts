@@ -69,7 +69,7 @@ public class Score {
         }
     }
 
-    private boolean isEndingThrow(String first) {
+    private boolean isEndingThrow(String value) {
         return false;
     }
 
