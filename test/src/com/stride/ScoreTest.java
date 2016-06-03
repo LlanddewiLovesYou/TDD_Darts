@@ -135,14 +135,13 @@ public class ScoreTest {
 
     @Test
     @Parameters({
-            "S11,S1,PASS",
-            "S11,S1,S1",
-            "S1,S10,S3"
+            "T10,S1,PASS",
+            "D14,D2,S1",
+            "S1,D14,S2"
     })
     public void shouldEnsureRemainingThrowsArePassesWhenScoreIsBelowTwo(String first, String second, String third) {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Score below two, remaining throws must be passed on");
-        score = new Score(12);
-        score.turn(first, second, third);
+        winnableScore.turn(first, second, third);
     }
 }
