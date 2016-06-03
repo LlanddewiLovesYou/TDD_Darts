@@ -2,6 +2,7 @@ package com.stride;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
+import junitparams.converters.Param;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
@@ -90,14 +91,12 @@ public class ScoreTest {
     }
 
     @Test
-    public void shouldResetScoreWhenReducedToOne() {
-        winnableScore.turn("T12", "D1", "S1");
-        assertEquals(40, winnableScore.score());
-    }
-
-    @Test
-    public void shouldResetScoreWhenReducedBelowZero() {
-        winnableScore.turn("D10", "S8", "S13");
+    @Parameters({
+            "T12,D1,S1",
+            "D10,S8,S13"
+    })
+    public void resetScore(String first, String second, String third) {
+        winnableScore.turn(first, second, third);
         assertEquals(40, winnableScore.score());
     }
 
