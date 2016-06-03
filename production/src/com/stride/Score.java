@@ -64,28 +64,21 @@ public class Score {
         ensureThereAreNoFurtherThrowsOnceScorePassesBelowTwo(second, third, firstScore, secondScore);
 
         int runningTally = this.tally - firstScore;
-        if (runningTally == 0) {
-            if (isAnActualQualifyingThrow(first)) {
-                this.tally = runningTally;
-            }
+        if (runningTally == 0 && isAnActualQualifyingThrow(first)) {
+            this.tally = runningTally;
             return;
         }
 
         runningTally = runningTally - secondScore;
-        if (runningTally == 0) {
-            if (isAnActualQualifyingThrow(second)) {
-                this.tally = runningTally;
-            }
+        if (runningTally == 0 && isAnActualQualifyingThrow(second)) {
+            this.tally = runningTally;
             return;
         }
 
         int thirdScore = extractScore(third);
         runningTally = runningTally - thirdScore;
-        if (runningTally == 0) {
-            if (isAnActualQualifyingThrow(third)) {
-                this.tally = runningTally;
-            }
-            return;
+        if (runningTally == 0 && isAnActualQualifyingThrow(third)) {
+            this.tally = runningTally;
         }
 
         if (runningTally >= 2) {
