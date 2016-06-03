@@ -9,7 +9,6 @@ Initial Tasks
 - Ensure score is reduced appropriately after a series of throws
 - Reduce score to two
 - Reducing score to one resets
-- Handle case where the first two launches are considered passes or misses and the final one is a qualifying win (shift all non passing or missing throws to the left)
 - Expect at least one throw
 - Allow game to end when first throw lands on zero and is double
 - Allow game to end when second throw lands on zero and is double
@@ -26,6 +25,8 @@ Initial Tasks
 - Reset score when first throw reaches zero and is single, triple or outer ring
 - Reset score when second throw reaches zero and is single, triple or outer ring
 - Reset score when third throw reaches zero and is single, triple or outer ring
+- Prevent first throw from being a pass when there is a second and third throw
+- Prevent second throw from being a pass when there's a third throw
 
 Order of task completion
 - Check for a win when score is >= 170
