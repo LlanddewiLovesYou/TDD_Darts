@@ -87,31 +87,9 @@ public class ScoreTest {
     }
 
     @Test
-    public void shouldBeAbleToConstructWithArbitraryScore() {
-        assertEquals(30, winnableScore.score());
-    }
-
-    @Test
-    @Parameters({
-            "T8,D2,S1",
-            "D10,S8,S3",
-            "D14,S1,PASS"
-    })
-    public void resetScore(String first, String second, String third) {
-        winnableScore.turn(first, second, third);
-        assertEquals(30, winnableScore.score());
-    }
-
-    @Test
     public void shouldAllowScoreToReachTwo() {
         winnableScore.turn("D14", "MISS", "MISS");
         assertEquals(2, winnableScore.score());
-    }
-
-    @Test
-    public void shouldSetScoreToZeroWhenItReachesZeroAndThirdThrowIsADouble() {
-        winnableScore.turn("T8", "S4", "D1");
-        assertEquals(0, winnableScore.score());
     }
 
     @Test
@@ -144,5 +122,27 @@ public class ScoreTest {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Score below two, remaining throws must be passed on");
         winnableScore.turn(first, second, third);
+    }
+
+    @Test
+    public void shouldBeAbleToConstructWithArbitraryScore() {
+        assertEquals(30, winnableScore.score());
+    }
+
+    @Test
+    @Parameters({
+            "T8,D2,S1",
+            "D10,S8,S3",
+            "D14,S1,PASS"
+    })
+    public void resetScoreWhenScoreDropsBelowTwoAndNotZero(String first, String second, String third) {
+        winnableScore.turn(first, second, third);
+        assertEquals(30, winnableScore.score());
+    }
+    
+    @Test
+    public void shouldSetScoreToZeroWhenItReachesZeroAndThirdThrowIsADouble() {
+        winnableScore.turn("T8", "S4", "D1");
+        assertEquals(0, winnableScore.score());
     }
 }
