@@ -141,12 +141,6 @@ public class ScoreTest {
     }
 
     @Test
-    public void shouldSetScoreToZeroWhenItReachesZeroAndThirdThrowIsADouble() {
-        winnableScore.turn("T8", "S4", "D1");
-        assertEquals(0, winnableScore.score());
-    }
-
-    @Test
     @Parameters({
             "30,T10",
             "20,S20",
@@ -171,5 +165,22 @@ public class ScoreTest {
     public void shouldResetScoreWhenItReachesZeroAndButDoesNotQualify(String first, String second, String third) {
         winnableScore.turn(first, second, third);
         assertEquals(30, winnableScore.score());
+    }
+
+    @Test
+    @Parameters({
+            "20,D10",
+            "50,IR"
+    })
+    public void shouldSetScoreToZeroOnFirstThrowWhenItQualifies(int startingScore, String first) {
+        winnableScore = new Score(startingScore);
+        winnableScore.turn(first, "PASS", "PASS");
+        assertEquals(0, winnableScore.score());
+    }
+
+    @Test
+    public void shouldSetScoreToZeroWhenItReachesZeroAndThirdThrowIsADouble() {
+        winnableScore.turn("T8", "S4", "D1");
+        assertEquals(0, winnableScore.score());
     }
 }

@@ -1,7 +1,9 @@
 package com.stride;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -32,6 +34,11 @@ public class Score {
         this.put(TURN_TYPE_TRIPLE, 3);
     }};
 
+    private static final Set<String> WINNING_TURN_MULTIPLIERS = new HashSet<String>() {{
+        this.add(TURN_TYPE_DOUBLE);
+        this.add(TURN_TYPE_INNER_RING);
+    }};
+
     private int tally;
 
     public Score() {
@@ -57,7 +64,10 @@ public class Score {
         ensureThereAreNoFurtherThrowsOnceScorePassesBelowTwo(second, third, firstScore, secondScore);
 
         int runningTally = this.tally - firstScore;
-        if (runningTally == 0 && !isQualifyingFinalThrow(first)) {
+        if (runningTally == 0) {
+            if (isAnActualQualifyingThrow(first)) {
+                this.tally = runningTally;
+            }
             return;
         }
 
@@ -78,6 +88,19 @@ public class Score {
         if (newTally >= 2 || newTally == 0) {
             this.tally = newTally;
         }
+    }
+
+    private boolean isAnActualQualifyingThrow(String value) {
+        if (TURN_TYPE_INNER_RING.equals(value)) {
+            return true;
+        }
+        if (TURN_TYPE_WORDS.containsKey(value)) {
+            return false;
+        }
+        Matcher matcher = SCORE_PATTERN.matcher(value);
+        validateTurnValue(value, matcher);
+        String turnMultiplier = matcher.group(1);
+        return WINNING_TURN_MULTIPLIERS.contains(turnMultiplier);
     }
 
     private boolean isQualifyingFinalThrow(String value) {
