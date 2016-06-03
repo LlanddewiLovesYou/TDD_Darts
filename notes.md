@@ -23,6 +23,9 @@ Initial Tasks
 - When score reaches zero remaining throws should be passes
 - Ensure remaining throws are passes when score is below two on first throw
 - Ensure remaining throws are passes when score is below two on second throw
+- Reset score when first throw reaches zero and is single, triple or outer ring
+- Reset score when second throw reaches zero and is single, triple or outer ring
+- Reset score when third throw reaches zero and is single, triple or outer ring
 
 Order of task completion
 - Check for a win when score is >= 170
