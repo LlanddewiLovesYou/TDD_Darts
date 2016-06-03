@@ -2,7 +2,6 @@ package com.stride;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -71,15 +70,15 @@ public class ScoreTest {
     }
 
     public Object[] nullParameters() {
-        return new Object[] {
-                new Object[] { null, "MISS", "MISS" },
-                new Object[] { "MISS", null, "MISS" },
-                new Object[] { "MISS", "MISS", null }
+        return new Object[]{
+                new Object[]{null, "MISS", "MISS"},
+                new Object[]{"MISS", null, "MISS"},
+                new Object[]{"MISS", "MISS", null}
         };
     }
 
     @Test
-    @Parameters(method="nullParameters")
+    @Parameters(method = "nullParameters")
     public void shouldRejectNullParameters(String first, String second, String third) {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Null throw");

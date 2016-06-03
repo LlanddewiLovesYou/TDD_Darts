@@ -16,7 +16,7 @@ public class Score {
     private static final String TURN_TYPE_OUTER_RING = "OR";
     private static final String TURN_TYPE_INNER_RING = "IR";
 
-    private static final Map<String, Integer> TURN_TYPE_WORDS = new HashMap<String, Integer>(){{
+    private static final Map<String, Integer> TURN_TYPE_WORDS = new HashMap<String, Integer>() {{
         this.put(TURN_TYPE_MISS, 0);
         this.put(TURN_TYPE_PASS, 0);
         this.put(TURN_TYPE_OUTER_RING, 25);
@@ -73,8 +73,7 @@ public class Score {
 
         runningTally = runningTally - secondScore;
         if (runningTally == 0) {
-            if(isAnActualQualifyingThrow(second))
-            {
+            if (isAnActualQualifyingThrow(second)) {
                 this.tally = runningTally;
             }
             return;
@@ -116,7 +115,7 @@ public class Score {
 
     private void ensureThereAreNoFurtherThrowsOnceScorePassesBelowTwo(String second, String third, int firstScore, int secondScore) {
         int tallyAfterFirstScore = this.tally - firstScore;
-        if(tallyAfterFirstScore < 2 && !TURN_TYPE_PASS.equals(second) ||
+        if (tallyAfterFirstScore < 2 && !TURN_TYPE_PASS.equals(second) ||
                 tallyAfterFirstScore - secondScore < 2 && !TURN_TYPE_PASS.equals(third)) {
             throw new IllegalArgumentException("Score below two, remaining throws must be passed on");
         }
