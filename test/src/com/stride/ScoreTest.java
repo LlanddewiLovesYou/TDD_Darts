@@ -138,7 +138,8 @@ public class ScoreTest {
     @Test
     @Parameters({
             "S11,S1,PASS",
-            "S11,S1,S1"
+            "S11,S1,S1",
+            "S1,S10,S3"
     })
     public void shouldEnsureRemainingThrowsArePassesWhenScoreIsBelowTwo(String first, String second, String third) {
         expectedException.expect(IllegalArgumentException.class);

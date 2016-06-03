@@ -54,7 +54,8 @@ public class Score {
         int firstScore = extractScore(first);
         int secondScore = extractScore(second);
 
-        if(this.tally - firstScore < 2 && !TURN_TYPE_PASS.equals(second)) {
+        if(this.tally - firstScore < 2 && !TURN_TYPE_PASS.equals(second) ||
+                this.tally - firstScore - secondScore < 2 && !TURN_TYPE_PASS.equals(third)) {
             throw new IllegalArgumentException("Score below two, remaining throws must be passed on");
         }
 
