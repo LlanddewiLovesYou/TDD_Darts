@@ -104,7 +104,8 @@ public class ScoreTest {
 
     @Test
     public void shouldAllowScoreToReachTwo() {
-        winnableScore.turn("T12", "D1", "MISS");
+        winnableScore = new Score(30);
+        winnableScore.turn("D14", "MISS", "MISS");
         assertEquals(2, winnableScore.score());
     }
 
