@@ -54,16 +54,20 @@ public class Score {
         int firstScore = extractScore(first);
         int secondScore = extractScore(second);
 
-        if(this.tally - firstScore < 2 && !TURN_TYPE_PASS.equals(second) ||
-                this.tally - firstScore - secondScore < 2 && !TURN_TYPE_PASS.equals(third)) {
-            throw new IllegalArgumentException("Score below two, remaining throws must be passed on");
-        }
+        ensureThereAreNoFurtherThrowsOnceScorePassesBelowTwo(second, third, firstScore, secondScore);
 
         int score = firstScore + secondScore + extractScore(third);
 
         int newTally = this.tally - score;
         if (newTally >= 2 || newTally == 0) {
             this.tally = newTally;
+        }
+    }
+
+    private void ensureThereAreNoFurtherThrowsOnceScorePassesBelowTwo(String second, String third, int firstScore, int secondScore) {
+        if(this.tally - firstScore < 2 && !TURN_TYPE_PASS.equals(second) ||
+                this.tally - firstScore - secondScore < 2 && !TURN_TYPE_PASS.equals(third)) {
+            throw new IllegalArgumentException("Score below two, remaining throws must be passed on");
         }
     }
 
