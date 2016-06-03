@@ -139,10 +139,16 @@ public class ScoreTest {
         winnableScore.turn(first, second, third);
         assertEquals(30, winnableScore.score());
     }
-    
+
     @Test
     public void shouldSetScoreToZeroWhenItReachesZeroAndThirdThrowIsADouble() {
         winnableScore.turn("T8", "S4", "D1");
         assertEquals(0, winnableScore.score());
+    }
+
+    @Test
+    public void shouldResetScoreWhenItReachesZeroForFirstArgumentOfTripleMuliplier() {
+        winnableScore.turn("T10", "PASS", "PASS");
+        assertEquals(30, winnableScore.score());
     }
 }

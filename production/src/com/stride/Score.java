@@ -56,12 +56,21 @@ public class Score {
 
         ensureThereAreNoFurtherThrowsOnceScorePassesBelowTwo(second, third, firstScore, secondScore);
 
+        int runningTally = this.tally - firstScore;
+        if (runningTally == 0 && !isEndingThrow(first)) {
+            return;
+        }
+
         int score = firstScore + secondScore + extractScore(third);
 
         int newTally = this.tally - score;
         if (newTally >= 2 || newTally == 0) {
             this.tally = newTally;
         }
+    }
+
+    private boolean isEndingThrow(String first) {
+        return false;
     }
 
     private void ensureThereAreNoFurtherThrowsOnceScorePassesBelowTwo(String second, String third, int firstScore, int secondScore) {
