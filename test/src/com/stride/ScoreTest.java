@@ -2,6 +2,7 @@ package com.stride;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -79,7 +80,7 @@ public class ScoreTest {
 
     @Test
     @Parameters(method="nullParameters")
-    public void shouldRejectNullFirstThrowInTurn(String first, String second, String third) {
+    public void shouldRejectNullParameters(String first, String second, String third) {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Null turn");
         score.turn(first, second, third);
