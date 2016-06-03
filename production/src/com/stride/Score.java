@@ -11,6 +11,9 @@ public class Score {
 
     private static final Pattern SCORE_PATTERN = Pattern.compile("([SDT])(20|1[0-9]|[1-9])");
 
+    public static final int GROUP_SCORE = 2;
+    public static final int GROUP_MULTIPLIER = 1;
+
     private static final String TURN_TYPE_MISS = "MISS";
     private static final String TURN_TYPE_PASS = "PASS";
     private static final String TURN_TYPE_OUTER_RING = "OR";
@@ -132,7 +135,7 @@ public class Score {
 
         Matcher matcher = SCORE_PATTERN.matcher(value);
         validateTurnValue(value, matcher);
-        return Integer.parseInt(matcher.group(2)) * TURN_MULTIPLIERS.get(matcher.group(1));
+        return Integer.parseInt(matcher.group(GROUP_SCORE)) * TURN_MULTIPLIERS.get(matcher.group(GROUP_MULTIPLIER));
     }
 
     private void validateTurnValue(String value, Matcher matcher) {
