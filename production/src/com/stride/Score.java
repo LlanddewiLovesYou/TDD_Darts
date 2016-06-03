@@ -51,7 +51,14 @@ public class Score {
         ensureThereIsAtLeastOneThrow(first, second, third);
         ensureNoEarlyPasses(first, second, third);
 
-        int score = extractScore(first) + extractScore(second) + extractScore(third);
+        int firstScore = extractScore(first);
+        int secondScore = extractScore(second);
+
+        if(this.tally - firstScore < 2 && !TURN_TYPE_PASS.equals(second)) {
+            throw new IllegalArgumentException("Score below two, remaining throws must be passed on");
+        }
+
+        int score = firstScore + secondScore + extractScore(third);
 
         int newTally = this.tally - score;
         if (newTally >= 2 || newTally == 0) {

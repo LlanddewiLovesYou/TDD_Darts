@@ -134,4 +134,16 @@ public class ScoreTest {
         expectedException.expectMessage("Unexpected pass when there are later scoring throws");
         score.turn(first, second, third);
     }
+
+    @Test
+    @Parameters({
+            "S11,S1,PASS",
+            "S11,S1,S1"
+    })
+    public void shouldEnsureRemainingThrowsArePassesWhenScoreIsBelowTwo(String first, String second, String third) {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Score below two, remaining throws must be passed on");
+        score = new Score(12);
+        score.turn(first, second, third);
+    }
 }
