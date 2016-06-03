@@ -57,14 +57,12 @@ public class Score {
     }
 
     public void turn(String first, String second, String third) {
-        ensureNonNullParameters(first, second, third);
-        ensureThereIsAtLeastOneThrow(first, second, third);
-        ensureNoEarlyPasses(first, second, third);
+        ensurePreconditions(first, second, third);
 
         int firstScore = extractScore(first);
         int secondScore = extractScore(second);
 
-        ensureThereAreNoFurtherThrowsOnceScorePassesBelowTwo(second, third, firstScore, secondScore);
+        ensureThereAreNoFurtherThrowsOnceScorePassesBelowTwo(firstScore, secondScore, second, third);
 
         int runningTally = this.tally - firstScore;
         if (this.tally - firstScore == 0 && isQualifyingThrow(first)) {
@@ -88,10 +86,17 @@ public class Score {
         }
     }
 
-    private void ensureThereAreNoFurtherThrowsOnceScorePassesBelowTwo(String second, String third, int firstScore, int secondScore) {
+    private void ensurePreconditions(String first, String second, String third) {
+        ensureNonNullParameters(first, second, third);
+        ensureThereIsAtLeastOneThrow(first, second, third);
+        ensureNoEarlyPasses(first, second, third);
+    }
+
+    private void ensureThereAreNoFurtherThrowsOnceScorePassesBelowTwo(
+            int firstScore, int secondScore, String secondValue, String thirdValue) {
         int tallyAfterFirstScore = this.tally - firstScore;
-        if (tallyAfterFirstScore < 2 && !TURN_TYPE_PASS.equals(second) ||
-                tallyAfterFirstScore - secondScore < 2 && !TURN_TYPE_PASS.equals(third)) {
+        if (tallyAfterFirstScore < 2 && !TURN_TYPE_PASS.equals(secondValue) ||
+                tallyAfterFirstScore - secondScore < 2 && !TURN_TYPE_PASS.equals(thirdValue)) {
             throw new IllegalArgumentException("Score below two, remaining throws must be passed on");
         }
     }
