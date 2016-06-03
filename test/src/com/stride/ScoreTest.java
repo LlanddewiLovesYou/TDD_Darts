@@ -2,11 +2,15 @@ package com.stride;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
+import junitparams.converters.Param;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
+
+import javax.lang.model.type.NullType;
 
 import static org.junit.Assert.assertEquals;
 
@@ -68,25 +72,20 @@ public class ScoreTest {
         score.launch("INVALID", "MISS", "MISS");
     }
 
-    @Test
-    public void shouldRejectNullFirstLaunch() {
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Null launch");
-        score.launch(null, "MISS", "MISS");
+    public Object[] nullParameters() {
+        return new Object[] {
+                new Object[] { null, "MISS", "MISS" },
+                new Object[] { "MISS", null, "MISS" },
+                new Object[] { "MISS", "MISS", null }
+        };
     }
 
     @Test
-    public void shouldRejectNullSecondLaunch() {
+    @Parameters(method="nullParameters")
+    public void shouldRejectNullFirstLaunch(String first, String second, String third) {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Null launch");
-        score.launch("MISS", null, "MISS");
-    }
-
-    @Test
-    public void shouldRejectNullThirdLaunch() {
-        expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Null launch");
-        score.launch("MISS", "MISS", null);
+        score.launch(first, second, third);
     }
 
     @Test

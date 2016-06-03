@@ -8,6 +8,7 @@ Initial Tasks
 - Ensure score is reduced appropriately after a series of throws
 - Reduce score to two
 - Reducing score to one resets
+- Handle case where the first two launches are considered passes or misses and the final one is a qualifying win (shift all non passing or missing throws to the left)
 
 Order of task completion
 - Check for a win when score is >= 170
