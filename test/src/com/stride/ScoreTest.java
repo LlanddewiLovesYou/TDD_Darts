@@ -96,6 +96,12 @@ public class ScoreTest {
     }
 
     @Test
+    public void shouldResetScoreWhenReducedBelowZero() {
+        winnableScore.turn("D10", "S8", "S13");
+        assertEquals(40, winnableScore.score());
+    }
+
+    @Test
     public void shouldAllowScoreToReachTwo() {
         winnableScore.turn("T12", "D1", "MISS");
         assertEquals(2, winnableScore.score());
