@@ -66,7 +66,13 @@ public class Score {
             return;
         }
 
-        int score = firstScore + secondScore + extractScore(third);
+        int thirdScore = extractScore(third);
+        runningTally = runningTally - thirdScore;
+        if (runningTally == 0 && !isQualifyingFinalThrow(third)) {
+            return;
+        }
+
+        int score = firstScore + secondScore + thirdScore;
 
         int newTally = this.tally - score;
         if (newTally >= 2 || newTally == 0) {
@@ -75,7 +81,7 @@ public class Score {
     }
 
     private boolean isQualifyingFinalThrow(String value) {
-        return false;
+        return "D1".equals(value);
     }
 
     private void ensureThereAreNoFurtherThrowsOnceScorePassesBelowTwo(String second, String third, int firstScore, int secondScore) {

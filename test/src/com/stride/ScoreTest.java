@@ -170,7 +170,10 @@ public class ScoreTest {
     @Parameters({
             "S16,S14,PASS",
             "S3,T9,PASS",
-            "S5,OR,PASS"
+            "S5,OR,PASS",
+            "S10,S10,S10",
+            "S1,S2,T9",
+            "S1,S4,OR"
     })
     public void shouldResetScoreWhenItReachesZeroAndButDoesNotQualify(String first, String second, String third) {
         winnableScore.turn(first, second, third);
