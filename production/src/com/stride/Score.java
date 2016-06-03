@@ -47,10 +47,17 @@ public class Score {
     }
 
     public void turn(String first, String second, String third) {
+        ensureThereIsAtLeastOneThrow(first, second, third);
         ensureNonNullParameters(first, second, third);
         int score = extractScore(first) + extractScore(second) + extractScore(third);
         if (this.tally - score >= 2 || (this.tally - score) == 0) {
             this.tally -= score;
+        }
+    }
+
+    private void ensureThereIsAtLeastOneThrow(String first, String second, String third) {
+        if (TURN_TYPE_PASS.equals(first) && TURN_TYPE_PASS.equals(second) && TURN_TYPE_PASS.equals(third)) {
+            throw new IllegalArgumentException("Expected at least one throw");
         }
     }
 

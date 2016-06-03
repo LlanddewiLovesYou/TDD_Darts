@@ -2,6 +2,7 @@ package com.stride;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -33,7 +34,6 @@ public class ScoreTest {
     @Test
     @Parameters({
             "501,MISS,MISS,MISS",
-            "501,PASS,PASS,PASS",
             "497,S4,MISS,MISS",
             "491,MISS,S10,MISS",
             "481,MISS,MISS,S20",
@@ -105,5 +105,12 @@ public class ScoreTest {
     public void shouldSetScoreToZeroWhenItReachesZeroAndThirdThrowIsADouble() {
         winnableScore.turn("T10", "S8", "D1");
         assertEquals(0, winnableScore.score());
+    }
+
+    @Test
+    public void expectAtLeastOneThrow() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Expected at least one throw");
+        score.turn("PASS", "PASS", "PASS");
     }
 }
