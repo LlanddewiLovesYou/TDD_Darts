@@ -92,13 +92,14 @@ public class ScoreTest {
 
     @Test
     @Parameters({
-            "T12,D1,S1",
-            "D10,S8,S13",
-            "D19,S1,PASS"
+            "T8,D2,S1",
+            "D10,S8,S3",
+            "D14,S1,PASS"
     })
     public void resetScore(String first, String second, String third) {
+        winnableScore = new Score(30);
         winnableScore.turn(first, second, third);
-        assertEquals(40, winnableScore.score());
+        assertEquals(30, winnableScore.score());
     }
 
     @Test
