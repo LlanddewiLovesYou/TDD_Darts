@@ -88,11 +88,8 @@ public class Score {
             return;
         }
 
-        int score = firstScore + secondScore + thirdScore;
-
-        int newTally = this.tally - score;
-        if (newTally >= 2 || newTally == 0) {
-            this.tally = newTally;
+        if (runningTally >= 2) {
+            this.tally = runningTally;
         }
     }
 
@@ -107,10 +104,6 @@ public class Score {
         validateTurnValue(value, matcher);
         String turnMultiplier = matcher.group(1);
         return WINNING_TURN_MULTIPLIERS.contains(turnMultiplier);
-    }
-
-    private boolean isQualifyingFinalThrow(String value) {
-        return "D1".equals(value);
     }
 
     private void ensureThereAreNoFurtherThrowsOnceScorePassesBelowTwo(String second, String third, int firstScore, int secondScore) {
