@@ -147,23 +147,16 @@ public class ScoreTest {
     }
 
     @Test
-    public void shouldResetScoreWhenItReachesZeroForFirstArgumentOfTripleMuliplier() {
-        winnableScore.turn("T10", "PASS", "PASS");
-        assertEquals(30, winnableScore.score());
-    }
-
-    @Test
-    public void shouldResetScoreWhenItReachesZeroForFirstArgumentOfSingleMultipler() {
-        winnableScore = new Score(20);
-        winnableScore.turn("S20", "PASS", "PASS");
-        assertEquals(20, winnableScore.score());
-    }
-
-    @Test
-    public void shouldResetScoreWhenItReachesZeroForFirstArgumentOfOuterRing() {
-        winnableScore = new Score(25);
-        winnableScore.turn("OR", "PASS", "PASS");
-        assertEquals(25, winnableScore.score());
+    @Parameters({
+            "30,T10",
+            "20,S20",
+            "25,OR"
+    })
+    public void shouldResetScoreForFirstThrowThatDoesNotQualify(
+            int startingScore, String first) {
+        winnableScore = new Score(startingScore);
+        winnableScore.turn(first, "PASS", "PASS");
+        assertEquals(startingScore, winnableScore.score());
     }
 
     @Test
