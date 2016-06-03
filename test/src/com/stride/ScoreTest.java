@@ -38,6 +38,8 @@ public class ScoreTest {
             "497,S4,MISS,MISS",
             "491,MISS,S10,MISS",
             "481,MISS,MISS,S20",
+            "499,S1,S1,PASS",
+            "500,S1,PASS,PASS",
             "471,D3,D5,D7",
             "456,T3,T5,T7",
             "426,OR,OR,OR",
