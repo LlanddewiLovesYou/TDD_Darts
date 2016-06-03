@@ -102,8 +102,8 @@ public class ScoreTest {
     }
 
     @Test
-    public void shouldSetScoreToZeroWhenItReachesZeroAndThirdLaunchIsADouble() {
-        winnableScore.turn("T12", "D2", "MISS");
+    public void shouldSetScoreToZeroWhenItReachesZeroAndThirdThrowIsADouble() {
+        winnableScore.turn("T10", "S8", "D1");
         assertEquals(0, winnableScore.score());
     }
 }
