@@ -82,7 +82,7 @@ public class ScoreTest {
     @Parameters(method="nullParameters")
     public void shouldRejectNullParameters(String first, String second, String third) {
         expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Null turn");
+        expectedException.expectMessage("Null throw");
         score.turn(first, second, third);
     }
 

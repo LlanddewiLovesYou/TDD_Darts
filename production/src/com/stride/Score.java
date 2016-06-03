@@ -82,7 +82,7 @@ public class Score {
 
     private void ensureNonNullParameters(String first, String second, String third) {
         if (first == null || second == null || third == null) {
-            throw new IllegalArgumentException("Null turn");
+            throw new IllegalArgumentException("Null throw");
         }
     }
 
