@@ -47,8 +47,8 @@ public class Score {
     }
 
     public void turn(String first, String second, String third) {
-        ensureThereIsAtLeastOneThrow(first, second, third);
         ensureNonNullParameters(first, second, third);
+        ensureThereIsAtLeastOneThrow(first, second, third);
         int score = extractScore(first) + extractScore(second) + extractScore(third);
 
         int newTally = this.tally - score;
