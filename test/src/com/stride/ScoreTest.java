@@ -124,7 +124,9 @@ public class ScoreTest {
     @Test
     @Parameters({
             "PASS,T1,T1",
-            "PASS,T1,PASS"
+            "PASS,T1,PASS",
+            "T1,PASS,T1",
+            "PASS,PASS,T1"
     })
     public void shouldRejectPassesWhenThereAreLaterThrows(String first, String second, String third) {
         expectedException.expect(IllegalArgumentException.class);
