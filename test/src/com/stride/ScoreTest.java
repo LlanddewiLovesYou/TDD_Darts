@@ -95,7 +95,8 @@ public class ScoreTest {
     @Test
     @Parameters({
             "T12,D1,S1",
-            "D10,S8,S13"
+            "D10,S8,S13",
+            "D19,S1,PASS"
     })
     public void resetScore(String first, String second, String third) {
         winnableScore.turn(first, second, third);
