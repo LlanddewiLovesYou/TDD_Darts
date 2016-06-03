@@ -109,7 +109,8 @@ public class ScoreTest {
 
     @Test
     public void shouldSetScoreToZeroWhenItReachesZeroAndThirdThrowIsADouble() {
-        winnableScore.turn("T10", "S8", "D1");
+        winnableScore = new Score(30);
+        winnableScore.turn("T8", "S4", "D1");
         assertEquals(0, winnableScore.score());
     }
 
