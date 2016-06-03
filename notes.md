@@ -11,6 +11,18 @@ Initial Tasks
 - Reducing score to one resets
 - Handle case where the first two launches are considered passes or misses and the final one is a qualifying win (shift all non passing or missing throws to the left)
 - Expect at least one throw
+- Allow game to end when first throw lands on zero and is double
+- Allow game to end when second throw lands on zero and is double
+- Allow game to end when third throw lands on zero and is double
+- Allow game to end when first throw lands on zero and is inner ring
+- Allow game to end when second throw lands on zero and is inner ring
+- Allow game to end when third throw lands on zero and is inner ring
+- Ensure first throw is not a pass
+- Ensure second throw is not a pass when there is a 3rd throw
+- Allow second throw to be a pass when third throw is a pass
+- When score reaches zero remaining throws should be passes
+- Ensure remaining throws are passes when score is below two on first throw
+- Ensure remaining throws are passes when score is below two on second throw
 
 Order of task completion
 - Check for a win when score is >= 170
