@@ -181,10 +181,4 @@ public class ScoreTest {
         winnableScore.turn(first, second, third);
         assertEquals(0, winnableScore.score());
     }
-
-    @Test
-    public void shouldSetScoreToZeroWhenItReachesZeroAndThirdThrowIsADouble() {
-        winnableScore.turn("T8", "S4", "D1");
-        assertEquals(0, winnableScore.score());
-    }
 }
