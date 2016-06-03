@@ -2,15 +2,11 @@ package com.stride;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
-import junitparams.converters.Param;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
-
-import javax.lang.model.type.NullType;
 
 import static org.junit.Assert.assertEquals;
 
@@ -47,29 +43,29 @@ public class ScoreTest {
             "351,IR,IR,IR"
     })
     public void shouldReduceScoreAppropriately(int expected, String first, String second, String third) {
-        score.launch(first, second, third);
+        score.turn(first, second, third);
         assertEquals(expected, score.score());
     }
 
     @Test
-    public void shouldRejectLaunchesGreaterThan20() {
+    public void shouldRejectTurnsWhoseScoreIsGreaterThan20() {
         expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Invalid launch S21");
-        score.launch("S21", "MISS", "MISS");
+        expectedException.expectMessage("Invalid turn S21");
+        score.turn("S21", "MISS", "MISS");
     }
 
     @Test
-    public void shouldRejectLaunchesLessThan1() {
+    public void shouldRejectThrowsLessThan1() {
         expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Invalid launch S0");
-        score.launch("S0", "MISS", "MISS");
+        expectedException.expectMessage("Invalid turn S0");
+        score.turn("S0", "MISS", "MISS");
     }
 
     @Test
-    public void shouldRejectPoorlyFormattedLaunch() {
+    public void shouldRejectPoorlyFormattedTurn() {
         expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Invalid launch INVALID");
-        score.launch("INVALID", "MISS", "MISS");
+        expectedException.expectMessage("Invalid turn INVALID");
+        score.turn("INVALID", "MISS", "MISS");
     }
 
     public Object[] nullParameters() {
@@ -82,10 +78,10 @@ public class ScoreTest {
 
     @Test
     @Parameters(method="nullParameters")
-    public void shouldRejectNullFirstLaunch(String first, String second, String third) {
+    public void shouldRejectNullFirstThrowInTurn(String first, String second, String third) {
         expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Null launch");
-        score.launch(first, second, third);
+        expectedException.expectMessage("Null turn");
+        score.turn(first, second, third);
     }
 
     @Test
@@ -95,19 +91,19 @@ public class ScoreTest {
 
     @Test
     public void shouldResetScoreWhenReducedToOne() {
-        winnableScore.launch("T12", "D1", "S1");
+        winnableScore.turn("T12", "D1", "S1");
         assertEquals(40, winnableScore.score());
     }
 
     @Test
     public void shouldAllowScoreToReachTwo() {
-        winnableScore.launch("T12", "D1", "MISS");
+        winnableScore.turn("T12", "D1", "MISS");
         assertEquals(2, winnableScore.score());
     }
 
     @Test
     public void shouldSetScoreToZeroWhenItReachesZeroAndThirdLaunchIsADouble() {
-        winnableScore.launch("T12", "D2", "MISS");
+        winnableScore.turn("T12", "D2", "MISS");
         assertEquals(0, winnableScore.score());
     }
 }

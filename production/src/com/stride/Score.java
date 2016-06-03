@@ -9,27 +9,27 @@ public class Score {
 
     private static final Pattern SCORE_PATTERN = Pattern.compile("([SDT])(20|1[0-9]|[1-9])");
 
-    private static final String LAUNCH_MISS = "MISS";
-    private static final String LAUNCH_PASS = "PASS";
-    private static final String LAUNCH_OUTER_RING = "OR";
-    private static final String LAUNCH_INNER_RING = "IR";
+    private static final String TURN_TYPE_MISS = "MISS";
+    private static final String TURN_TYPE_PASS = "PASS";
+    private static final String TURN_TYPE_OUTER_RING = "OR";
+    private static final String TURN_TYPE_INNER_RING = "IR";
 
-    private static final Map<String, Integer> LAUNCH_WORDS = new HashMap<String, Integer>(){{
-        this.put(LAUNCH_MISS, 0);
-        this.put(LAUNCH_PASS, 0);
-        this.put(LAUNCH_OUTER_RING, 25);
-        this.put(LAUNCH_INNER_RING, 50);
+    private static final Map<String, Integer> TURN_TYPE_WORDS = new HashMap<String, Integer>(){{
+        this.put(TURN_TYPE_MISS, 0);
+        this.put(TURN_TYPE_PASS, 0);
+        this.put(TURN_TYPE_OUTER_RING, 25);
+        this.put(TURN_TYPE_INNER_RING, 50);
     }};
 
-    private static final String LAUNCH_SINGLE = "S";
-    private static final String LAUNCH_DOUBLE = "D";
-    private static final String LAUNCH_TRIPLE = "T";
+    private static final String TURN_TYPE_SINGLE = "S";
+    private static final String TURN_TYPE_DOUBLE = "D";
+    private static final String TURN_TYPE_TRIPLE = "T";
 
 
-    private static final Map<String, Integer> LAUNCH_MULTIPLIERS = new HashMap<String, Integer>() {{
-        this.put(LAUNCH_SINGLE, 1);
-        this.put(LAUNCH_DOUBLE, 2);
-        this.put(LAUNCH_TRIPLE, 3);
+    private static final Map<String, Integer> TURN_MULTIPLIERS = new HashMap<String, Integer>() {{
+        this.put(TURN_TYPE_SINGLE, 1);
+        this.put(TURN_TYPE_DOUBLE, 2);
+        this.put(TURN_TYPE_TRIPLE, 3);
     }};
 
     private int tally;
@@ -46,7 +46,7 @@ public class Score {
         return tally;
     }
 
-    public void launch(String first, String second, String third) {
+    public void turn(String first, String second, String third) {
         ensureNonNullParameters(first, second, third);
         int score = extractScore(first) + extractScore(second) + extractScore(third);
         if (this.tally - score >= 2 || (this.tally - score) == 0) {
@@ -56,23 +56,23 @@ public class Score {
 
     private void ensureNonNullParameters(String first, String second, String third) {
         if (first == null || second == null || third == null) {
-            throw new IllegalArgumentException("Null launch");
+            throw new IllegalArgumentException("Null turn");
         }
     }
 
     private int extractScore(String value) {
-        if (LAUNCH_WORDS.containsKey(value)) {
-            return LAUNCH_WORDS.get(value);
+        if (TURN_TYPE_WORDS.containsKey(value)) {
+            return TURN_TYPE_WORDS.get(value);
         }
 
         Matcher matcher = SCORE_PATTERN.matcher(value);
-        validateLaunchValue(value, matcher);
-        return Integer.parseInt(matcher.group(2)) * LAUNCH_MULTIPLIERS.get(matcher.group(1));
+        validateTurnValue(value, matcher);
+        return Integer.parseInt(matcher.group(2)) * TURN_MULTIPLIERS.get(matcher.group(1));
     }
 
-    private void validateLaunchValue(String value, Matcher matcher) {
+    private void validateTurnValue(String value, Matcher matcher) {
         if (!matcher.matches()) {
-            throw new IllegalArgumentException(String.format("Invalid launch %s", value));
+            throw new IllegalArgumentException(String.format("Invalid turn %s", value));
         }
     }
 }
