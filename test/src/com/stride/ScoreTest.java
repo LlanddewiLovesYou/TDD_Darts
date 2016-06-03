@@ -120,4 +120,15 @@ public class ScoreTest {
         expectedException.expectMessage("Expected at least one throw");
         score.turn("PASS", "PASS", "PASS");
     }
+
+    @Test
+    @Parameters({
+            "PASS,T1,T1",
+            "PASS,T1,PASS"
+    })
+    public void shouldRejectPassesWhenThereAreLaterThrows(String first, String second, String third) {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Unexpected pass when there are later scoring throws");
+        score.turn(first, second, third);
+    }
 }

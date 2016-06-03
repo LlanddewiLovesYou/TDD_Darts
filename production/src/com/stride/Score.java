@@ -49,7 +49,14 @@ public class Score {
     public void turn(String first, String second, String third) {
         ensureNonNullParameters(first, second, third);
         ensureThereIsAtLeastOneThrow(first, second, third);
-        int score = extractScore(first) + extractScore(second) + extractScore(third);
+
+        int firstScore = extractScore(first);
+        int secondScore = extractScore(second);
+        if (TURN_TYPE_PASS.equals(first) && !TURN_TYPE_PASS.equals(secondScore)) {
+            throw new IllegalArgumentException("Unexpected pass when there are later scoring throws");
+        }
+
+        int score = firstScore + secondScore + extractScore(third);
 
         int newTally = this.tally - score;
         if (newTally >= 2 || newTally == 0) {
