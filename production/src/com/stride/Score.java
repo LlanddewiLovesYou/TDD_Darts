@@ -67,38 +67,25 @@ public class Score {
         ensureThereAreNoFurtherThrowsOnceScorePassesBelowTwo(second, third, firstScore, secondScore);
 
         int runningTally = this.tally - firstScore;
-        if (runningTally == 0 && isAnActualQualifyingThrow(first)) {
+        if (this.tally - firstScore == 0 && isQualifyingThrow(first)) {
             this.tally = runningTally;
             return;
         }
 
         runningTally = runningTally - secondScore;
-        if (runningTally == 0 && isAnActualQualifyingThrow(second)) {
+        if (runningTally == 0 && isQualifyingThrow(second)) {
             this.tally = runningTally;
             return;
         }
 
         runningTally = runningTally - extractScore(third);
-        if (runningTally == 0 && isAnActualQualifyingThrow(third)) {
+        if (runningTally == 0 && isQualifyingThrow(third)) {
             this.tally = runningTally;
         }
 
         if (runningTally >= 2) {
             this.tally = runningTally;
         }
-    }
-
-    private boolean isAnActualQualifyingThrow(String value) {
-        if (TURN_TYPE_INNER_RING.equals(value)) {
-            return true;
-        }
-        if (TURN_TYPE_WORDS.containsKey(value)) {
-            return false;
-        }
-        Matcher matcher = SCORE_PATTERN.matcher(value);
-        validateTurnValue(value, matcher);
-        String turnMultiplier = matcher.group(1);
-        return WINNING_TURN_MULTIPLIERS.contains(turnMultiplier);
     }
 
     private void ensureThereAreNoFurtherThrowsOnceScorePassesBelowTwo(String second, String third, int firstScore, int secondScore) {
@@ -126,6 +113,19 @@ public class Score {
         if (first == null || second == null || third == null) {
             throw new IllegalArgumentException("Null throw");
         }
+    }
+
+    private boolean isQualifyingThrow(String value) {
+        if (TURN_TYPE_INNER_RING.equals(value)) {
+            return true;
+        }
+        if (TURN_TYPE_WORDS.containsKey(value)) {
+            return false;
+        }
+        Matcher matcher = SCORE_PATTERN.matcher(value);
+        validateTurnValue(value, matcher);
+        String turnMultiplier = matcher.group(1);
+        return WINNING_TURN_MULTIPLIERS.contains(turnMultiplier);
     }
 
     private int extractScore(String value) {
