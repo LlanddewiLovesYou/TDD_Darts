@@ -64,21 +64,15 @@ public class Score {
 
         ensureThereAreNoFurtherThrowsOnceScorePassesBelowTwo(firstScore, secondScore, second, third);
 
-        int runningTally = this.tally - firstScore;
-        if (this.tally - firstScore == 0 && isQualifyingThrow(first)) {
-            this.tally = runningTally;
-            return;
-        }
-
-        runningTally = runningTally - secondScore;
-        if (runningTally == 0 && isQualifyingThrow(second)) {
-            this.tally = runningTally;
-            return;
-        }
-
-        runningTally = runningTally - extractScore(third);
-        if (runningTally == 0 && isQualifyingThrow(third)) {
-            this.tally = runningTally;
+        int runningTally = this.tally;
+        int[] throwScores = {firstScore, secondScore, extractScore(third)};
+        String[] throwValues = {first, second, third};
+        for (int i = 0; i < throwScores.length; i++) {
+            runningTally -= throwScores[i];
+            if (runningTally == 0 && isQualifyingThrow(throwValues[i])) {
+                this.tally = runningTally;
+                return;
+            }
         }
 
         if (runningTally >= 2) {
