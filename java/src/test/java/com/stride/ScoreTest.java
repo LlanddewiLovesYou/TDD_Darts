@@ -27,7 +27,7 @@ public class ScoreTest {
 
     @Test
     public void shouldHaveAnInitialScore() {
-        assertEquals(501, score.score());
+        Assert.assertEquals(501, score.score());
     }
 
     @Test
@@ -45,7 +45,7 @@ public class ScoreTest {
     })
     public void shouldReduceScoreAppropriately(int expected, String first, String second, String third) {
         score.turn(first, second, third);
-        assertEquals(expected, score.score());
+        Assert.assertEquals(expected, score.score());
     }
 
     @Test
@@ -88,7 +88,7 @@ public class ScoreTest {
     @Test
     public void shouldAllowScoreToReachTwo() {
         winnableScore.turn("D14", "MISS", "MISS");
-        assertEquals(2, winnableScore.score());
+        Assert.assertEquals(2, winnableScore.score());
     }
 
     @Test
@@ -125,7 +125,7 @@ public class ScoreTest {
 
     @Test
     public void shouldBeAbleToConstructWithArbitraryScore() {
-        assertEquals(30, winnableScore.score());
+        Assert.assertEquals(30, winnableScore.score());
     }
 
     @Test
@@ -136,7 +136,7 @@ public class ScoreTest {
     })
     public void resetScoreWhenScoreDropsBelowTwoAndNotZero(String first, String second, String third) {
         winnableScore.turn(first, second, third);
-        assertEquals(30, winnableScore.score());
+        Assert.assertEquals(30, winnableScore.score());
     }
 
     @Test
@@ -149,7 +149,7 @@ public class ScoreTest {
             int startingScore, String first) {
         winnableScore = new Score(startingScore);
         winnableScore.turn(first, "PASS", "PASS");
-        assertEquals(startingScore, winnableScore.score());
+        Assert.assertEquals(startingScore, winnableScore.score());
     }
 
     @Test
@@ -163,7 +163,7 @@ public class ScoreTest {
     })
     public void shouldResetScoreWhenItReachesZeroAndButDoesNotQualify(String first, String second, String third) {
         winnableScore.turn(first, second, third);
-        assertEquals(30, winnableScore.score());
+        Assert.assertEquals(30, winnableScore.score());
     }
 
     @Test
@@ -179,6 +179,6 @@ public class ScoreTest {
             int startingScore, String first, String second, String third) {
         winnableScore = new Score(startingScore);
         winnableScore.turn(first, second, third);
-        assertEquals(0, winnableScore.score());
+        Assert.assertEquals(0, winnableScore.score());
     }
 }
