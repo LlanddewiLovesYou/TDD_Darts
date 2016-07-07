@@ -1,7 +1,7 @@
 require 'models/double_throw'
 
 describe DoubleThrow do
-  it 'should allow a valid score' do
+  it 'should double a valid score' do
     expect(DoubleThrow.new(10).score).to eq(20)
   end
 
