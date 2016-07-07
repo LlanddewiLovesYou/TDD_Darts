@@ -1,6 +1,6 @@
 package com.stride.models;
 
-public class DoubleThrow {
+public class DoubleThrow implements Scorable {
     public static final int MULTIPLIER = 2;
 
     private int score;

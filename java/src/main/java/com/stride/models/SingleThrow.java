@@ -1,6 +1,6 @@
 package com.stride.models;
 
-public class SingleThrow {
+public class SingleThrow implements Scorable {
     private int score;
 
     public SingleThrow(int score) {
