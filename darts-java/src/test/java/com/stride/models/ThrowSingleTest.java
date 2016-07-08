@@ -6,26 +6,26 @@ import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
 
-public class TripleThrowTest {
+public class ThrowSingleTest {
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
 
     @Test
-    public void shouldTripleAValidScore() {
-        assertEquals(9, new TripleThrow(3).score());
+    public void shouldAllowValidScore() {
+        assertEquals(5, new SingleThrow(5).score());
     }
 
     @Test
-    public void shouldRaiseExceptionWhenCreatedWithScoreJustBelowMinimumInRange() {
+    public void shouldRaiseExceptionForScoreJustBelowMinimum() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Throw score must be in range 1..20");
-        new TripleThrow(0);
+        new SingleThrow(0);
     }
 
     @Test
-    public void shouldRaiseExceptionWhenCreatedWithScoreJustAboveMaximumInRange() {
+    public void shouldRaiseExceptionForScoreJustAboveMaximum() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Throw score must be in range 1..20");
-        new TripleThrow(21);
+        new SingleThrow(21);
     }
 }
