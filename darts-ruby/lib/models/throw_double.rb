@@ -1,4 +1,4 @@
-class DoubleThrow
+class ThrowDouble
   MULTIPLIER = 2
 
   attr_reader :score
