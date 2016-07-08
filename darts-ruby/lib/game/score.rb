@@ -1,8 +1,9 @@
 require 'models/miss'
 require 'models/pass'
-require 'models/single_throw'
-require 'models/double_throw'
-require 'models/triple_throw'
+require 'models/throw_single'
+require 'models/throw_double'
+require 'models/throw_triple'
+require 'models/throw_inner_ring'
 
 class Score
 end
