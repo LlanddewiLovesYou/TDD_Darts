@@ -11,19 +11,19 @@ public class SingleTest {
     public ExpectedException expectedException = ExpectedException.none();
 
     @Test
-    public void shouldAllowValidBedScore() {
+    public void shouldAllowValidBedValue() {
         assertEquals(5, new Single(5).bedScore());
     }
 
     @Test
-    public void shouldRaiseExceptionForBedScoreJustBelowMinimum() {
+    public void shouldRaiseExceptionForBedValueJustBelowMinimum() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Throw bedScore must be in range 1..20");
         new Single(0);
     }
 
     @Test
-    public void shouldRaiseExceptionForBedScoreJustAboveMaximum() {
+    public void shouldRaiseExceptionForBedValueJustAboveMaximum() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Throw bedScore must be in range 1..20");
         new Single(21);

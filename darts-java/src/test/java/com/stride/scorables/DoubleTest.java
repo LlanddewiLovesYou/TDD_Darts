@@ -11,19 +11,19 @@ public class DoubleTest {
     public ExpectedException expectedException = ExpectedException.none();
 
     @Test
-    public void shouldDoubleAValidScore() {
+    public void shouldDoubleAValidBedValue() {
         assertEquals(20, new Double(10).bedScore());
     }
 
     @Test
-    public void shouldRaiseExceptionForBedScoreJustBelowMinimumInRange() {
+    public void shouldRaiseExceptionForBedValueJustBelowMinimumInRange() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Throw bedScore must be in range 1..20");
         new Double(0);
     }
 
     @Test
-    public void shouldRaiseExceptionForBedScoreJustAboveMaximumInRange() {
+    public void shouldRaiseExceptionForBedValueJustAboveMaximumInRange() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Throw bedScore must be in range 1..20");
         new Double(21);

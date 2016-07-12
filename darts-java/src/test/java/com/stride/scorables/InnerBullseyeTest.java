@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class InnerBullseyeTest {
     @Test
-    public void hasAFixedBedScore() {
+    public void hasAFixedBedValue() {
         assertEquals(50, new InnerBullseye().bedScore());
     }
 }

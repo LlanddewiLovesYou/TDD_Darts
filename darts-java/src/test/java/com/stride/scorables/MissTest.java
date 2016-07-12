@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class MissTest {
     @Test
-    public void hasAFixedBedScore() {
+    public void hasAFixedBedValue() {
         Assert.assertEquals(0, new Miss().bedScore());
     }
 }
