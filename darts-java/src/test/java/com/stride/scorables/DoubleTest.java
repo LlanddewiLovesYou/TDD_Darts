@@ -12,20 +12,20 @@ public class DoubleTest {
 
     @Test
     public void shouldDoubleAValidScore() {
-        assertEquals(20, new Double(10).score());
+        assertEquals(20, new Double(10).bedScore());
     }
 
     @Test
     public void shouldRaiseExceptionForScoreJustBelowMinimumInRange() {
         expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Throw score must be in range 1..20");
+        expectedException.expectMessage("Throw bedScore must be in range 1..20");
         new Double(0);
     }
 
     @Test
     public void shouldRaiseExceptionForScoreJustAboveMaximumInRange() {
         expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Throw score must be in range 1..20");
+        expectedException.expectMessage("Throw bedScore must be in range 1..20");
         new Double(21);
     }
 }

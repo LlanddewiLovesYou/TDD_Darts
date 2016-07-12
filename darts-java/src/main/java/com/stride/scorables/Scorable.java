@@ -1,5 +1,5 @@
 package com.stride.scorables;
 
 public interface Scorable {
-    int score();
+    int bedScore();
 }

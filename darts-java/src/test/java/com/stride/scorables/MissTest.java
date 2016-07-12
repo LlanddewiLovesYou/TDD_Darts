@@ -8,6 +8,6 @@ import static org.junit.Assert.assertEquals;
 public class MissTest {
     @Test
     public void hasAScoreOfZero() {
-        Assert.assertEquals(0, new Miss().score());
+        Assert.assertEquals(0, new Miss().bedScore());
     }
 }

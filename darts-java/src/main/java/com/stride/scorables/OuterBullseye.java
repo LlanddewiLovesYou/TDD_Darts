@@ -1,7 +1,7 @@
 package com.stride.scorables;
 
 public class OuterBullseye implements Scorable {
-    public int score() {
+    public int bedScore() {
         return 25;
     }
 }

@@ -12,20 +12,20 @@ public class SingleTest {
 
     @Test
     public void shouldAllowValidScore() {
-        assertEquals(5, new Single(5).score());
+        assertEquals(5, new Single(5).bedScore());
     }
 
     @Test
     public void shouldRaiseExceptionForScoreJustBelowMinimum() {
         expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Throw score must be in range 1..20");
+        expectedException.expectMessage("Throw bedScore must be in range 1..20");
         new Single(0);
     }
 
     @Test
     public void shouldRaiseExceptionForScoreJustAboveMaximum() {
         expectedException.expect(IllegalArgumentException.class);
-        expectedException.expectMessage("Throw score must be in range 1..20");
+        expectedException.expectMessage("Throw bedScore must be in range 1..20");
         new Single(21);
     }
 }
