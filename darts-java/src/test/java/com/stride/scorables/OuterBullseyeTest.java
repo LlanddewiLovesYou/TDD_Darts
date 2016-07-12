@@ -4,9 +4,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class OuterRingTest {
+public class OuterBullseyeTest {
     @Test
     public void shouldHaveAFixedScore() {
-        assertEquals(25, new OuterRing().score());
+        assertEquals(25, new OuterBullseye().score());
     }
 }

@@ -1,6 +1,6 @@
 package com.stride.scorables;
 
-public class InnerRing implements Scorable {
+public class InnerBullseye implements Scorable {
     @Override
     public int score() {
         return 50;
