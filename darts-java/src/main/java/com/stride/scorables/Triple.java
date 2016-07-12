@@ -1,11 +1,11 @@
-package com.stride.models;
+package com.stride.scorables;
 
-public class ThrowDouble implements Scorable {
-    private static final int MULTIPLIER = 2;
+public class Triple implements Scorable {
+    public static final int MULTIPLIER = 3;
 
     private int score;
 
-    public ThrowDouble(int score) {
+    public Triple(int score) {
         if (score < 1 || score > 20) {
             throw new IllegalArgumentException("Throw score must be in range 1..20");
         }

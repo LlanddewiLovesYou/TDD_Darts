@@ -1,4 +1,4 @@
-package com.stride.models;
+package com.stride.scorables;
 
 public class Miss implements Scorable {
     public int score() {

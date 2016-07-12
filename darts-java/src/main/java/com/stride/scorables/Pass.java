@@ -1,4 +1,4 @@
-package com.stride.models;
+package com.stride.scorables;
 
 public class Pass implements Scorable {
     public int score() {

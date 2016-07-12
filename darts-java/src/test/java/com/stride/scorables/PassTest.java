@@ -1,5 +1,6 @@
-package com.stride.models;
+package com.stride.scorables;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -7,6 +8,6 @@ import static org.junit.Assert.assertEquals;
 public class PassTest {
     @Test
     public void hasAScoreOfZero() {
-        assertEquals(0, new Pass().score());
+        Assert.assertEquals(0, new Pass().score());
     }
 }

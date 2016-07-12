@@ -1,4 +1,4 @@
-package com.stride.models;
+package com.stride.scorables;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -6,26 +6,26 @@ import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
 
-public class ThrowDoubleTest {
+public class SingleTest {
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
 
     @Test
-    public void shouldDoubleAValidScore() {
-        assertEquals(20, new ThrowDouble(10).score());
+    public void shouldAllowValidScore() {
+        assertEquals(5, new Single(5).score());
     }
 
     @Test
-    public void shouldRaiseExceptionForScoreJustBelowMinimumInRange() {
+    public void shouldRaiseExceptionForScoreJustBelowMinimum() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Throw score must be in range 1..20");
-        new ThrowDouble(0);
+        new Single(0);
     }
 
     @Test
-    public void shouldRaiseExceptionForScoreJustAboveMaximumInRange() {
+    public void shouldRaiseExceptionForScoreJustAboveMaximum() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Throw score must be in range 1..20");
-        new ThrowDouble(21);
+        new Single(21);
     }
 }

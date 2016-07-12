@@ -1,12 +1,12 @@
-package com.stride.models;
+package com.stride.scorables;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class ThrowOuterRingTest {
+public class OuterRingTest {
     @Test
     public void shouldHaveAFixedScore() {
-        assertEquals(25, new ThrowOuterRing().score());
+        assertEquals(25, new OuterRing().score());
     }
 }
