@@ -16,14 +16,14 @@ public class DoubleTest {
     }
 
     @Test
-    public void shouldRaiseExceptionForScoreJustBelowMinimumInRange() {
+    public void shouldRaiseExceptionForBedScoreJustBelowMinimumInRange() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Throw bedScore must be in range 1..20");
         new Double(0);
     }
 
     @Test
-    public void shouldRaiseExceptionForScoreJustAboveMaximumInRange() {
+    public void shouldRaiseExceptionForBedScoreJustAboveMaximumInRange() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Throw bedScore must be in range 1..20");
         new Double(21);

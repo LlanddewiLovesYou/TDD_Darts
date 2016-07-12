@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class PassTest {
     @Test
-    public void hasAScoreOfZero() {
+    public void hasAFixedBedScore() {
         Assert.assertEquals(0, new Pass().bedScore());
     }
 }

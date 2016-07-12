@@ -11,19 +11,19 @@ public class TripleTest {
     public ExpectedException expectedException = ExpectedException.none();
 
     @Test
-    public void shouldTripleAValidScore() {
+    public void shouldTripleAValidBedScore() {
         assertEquals(9, new Triple(3).bedScore());
     }
 
     @Test
-    public void shouldRaiseExceptionWhenCreatedWithScoreJustBelowMinimumInRange() {
+    public void shouldRaiseExceptionWhenCreatedWithBedScoreJustBelowMinimumInRange() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Throw bedScore must be in range 1..20");
         new Triple(0);
     }
 
     @Test
-    public void shouldRaiseExceptionWhenCreatedWithScoreJustAboveMaximumInRange() {
+    public void shouldRaiseExceptionWhenCreatedWithBedScoreJustAboveMaximumInRange() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Throw bedScore must be in range 1..20");
         new Triple(21);
