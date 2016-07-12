@@ -1,6 +1,6 @@
 module Throw
   class OuterBullseye
-    def score
+    def bed_score
       25
     end
   end

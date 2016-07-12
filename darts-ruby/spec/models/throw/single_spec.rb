@@ -2,7 +2,7 @@ require File.join('models', 'throw', 'single')
 
 describe Throw::Single do
   it 'should allow a valid score' do
-    expect(Throw::Single.new(5).score).to eq(5)
+    expect(Throw::Single.new(5).bed_score).to eq(5)
   end
 
   it 'should raise exception when created with score just below minimum in range' do

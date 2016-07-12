@@ -2,7 +2,7 @@ require File.join('models', 'throw', 'double')
 
 describe Throw::Double do
   it 'should double a valid score' do
-    expect(Throw::Double.new(10).score).to eq(20)
+    expect(Throw::Double.new(10).bed_score).to eq(20)
   end
 
   it 'should raise exception when created with score just below minimum in range' do

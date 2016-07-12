@@ -1,6 +1,6 @@
 module Throw
   class Pass
-    def score
+    def bed_score
       0
     end
   end

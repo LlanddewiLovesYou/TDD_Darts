@@ -1,6 +1,6 @@
 module Throw
   class InnerBullseye
-    def score
+    def bed_score
       50
     end
   end
