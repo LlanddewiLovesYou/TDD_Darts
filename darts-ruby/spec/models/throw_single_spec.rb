@@ -1,4 +1,4 @@
-require 'models/throw_single'
+require File.join('models', 'throw_single')
 
 describe ThrowSingle do
   it 'should allow a valid score' do

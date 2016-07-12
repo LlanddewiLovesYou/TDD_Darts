@@ -1,4 +1,4 @@
-require 'models/pass'
+require File.join('models', 'pass')
 
 describe Pass do
   subject { Pass.new }

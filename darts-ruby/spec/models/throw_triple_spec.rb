@@ -1,4 +1,4 @@
-require 'models/throw_triple'
+require File.join('models', 'throw_triple')
 
 describe ThrowTriple do
   it 'should triple a valid score' do

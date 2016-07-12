@@ -1,4 +1,4 @@
-require 'models/miss'
+require File.join('models', 'miss')
 
 describe Miss do
 

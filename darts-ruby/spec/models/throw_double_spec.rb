@@ -1,4 +1,4 @@
-require 'models/throw_double'
+require File.join('models', 'throw_double')
 
 describe ThrowDouble do
   it 'should double a valid score' do
