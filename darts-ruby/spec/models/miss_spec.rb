@@ -1,8 +1,8 @@
-require File.join('models', 'miss')
+require File.join('models', 'throw', 'miss')
 
-describe Miss do
+describe Throw::Miss do
 
-  subject { Miss.new }
+  subject { Throw::Miss.new }
 
   it 'has a score of zero' do
     expect(subject.score).to eq(0)

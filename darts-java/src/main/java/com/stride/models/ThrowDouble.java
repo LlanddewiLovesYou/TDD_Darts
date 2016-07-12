@@ -1,7 +1,7 @@
 package com.stride.models;
 
 public class ThrowDouble implements Scorable {
-    public static final int MULTIPLIER = 2;
+    private static final int MULTIPLIER = 2;
 
     private int score;
 
