@@ -1,7 +1,7 @@
-require 'models/throw_outer_ring'
+require File.join('models', 'throw_outer_bullseye')
 
-describe ThrowOuterRing do
+describe ThrowOuterBullseye do
   it 'should have a fixed score' do
-    expect(ThrowOuterRing.new.score).to eq(25)
+    expect(ThrowOuterBullseye.new.score).to eq(25)
   end
 end

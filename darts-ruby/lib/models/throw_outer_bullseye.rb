@@ -1,4 +1,4 @@
-class ThrowOuterRing
+class ThrowOuterBullseye
   def score
     25
   end

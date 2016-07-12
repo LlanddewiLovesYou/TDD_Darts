@@ -1,7 +1,7 @@
-require 'models/throw_inner_ring'
+require File.join('models', 'throw_inner_bullseye')
 
-describe ThrowInnerRing do
+describe ThrowInnerBullseye do
   it 'should have a fixed score' do
-    expect(ThrowInnerRing.new.score).to eq(50)
+    expect(ThrowInnerBullseye.new.score).to eq(50)
   end
 end
