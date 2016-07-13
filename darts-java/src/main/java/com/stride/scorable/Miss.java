@@ -1,4 +1,4 @@
-package com.stride.scorables;
+package com.stride.scorable;
 
 public class Miss implements Scorable {
     public int bedScore() {

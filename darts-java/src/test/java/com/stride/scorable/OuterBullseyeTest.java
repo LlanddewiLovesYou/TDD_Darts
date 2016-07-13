@@ -1,12 +1,12 @@
-package com.stride.scorables;
+package com.stride.scorable;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class InnerBullseyeTest {
+public class OuterBullseyeTest {
     @Test
     public void hasAFixedBedValue() {
-        assertEquals(50, new InnerBullseye().bedScore());
+        assertEquals(25, new OuterBullseye().bedScore());
     }
 }

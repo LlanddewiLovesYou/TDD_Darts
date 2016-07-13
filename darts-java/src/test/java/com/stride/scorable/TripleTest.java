@@ -1,4 +1,4 @@
-package com.stride.scorables;
+package com.stride.scorable;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -6,26 +6,26 @@ import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
 
-public class DoubleTest {
+public class TripleTest {
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
 
     @Test
-    public void shouldDoubleAValidBedValue() {
-        assertEquals(20, new Double(10).bedScore());
+    public void shouldTripleAValidBedValue() {
+        assertEquals(9, new Triple(3).bedScore());
     }
 
     @Test
-    public void shouldRaiseExceptionForBedValueJustBelowMinimumInRange() {
+    public void shouldRaiseExceptionWhenCreatedWithBedValueJustBelowMinimumInRange() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Throw bedScore must be in range 1..20");
-        new Double(0);
+        new Triple(0);
     }
 
     @Test
-    public void shouldRaiseExceptionForBedValueJustAboveMaximumInRange() {
+    public void shouldRaiseExceptionWhenCreatedWithBedValueJustAboveMaximumInRange() {
         expectedException.expect(IllegalArgumentException.class);
         expectedException.expectMessage("Throw bedScore must be in range 1..20");
-        new Double(21);
+        new Triple(21);
     }
 }

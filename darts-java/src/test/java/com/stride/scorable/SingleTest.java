@@ -1,4 +1,4 @@
-package com.stride.scorables;
+package com.stride.scorable;
 
 import org.junit.Rule;
 import org.junit.Test;

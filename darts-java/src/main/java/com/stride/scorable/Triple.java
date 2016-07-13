@@ -1,4 +1,4 @@
-package com.stride.scorables;
+package com.stride.scorable;
 
 public class Triple implements Scorable {
     public static final int MULTIPLIER = 3;

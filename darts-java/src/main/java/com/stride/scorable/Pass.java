@@ -1,4 +1,4 @@
-package com.stride.scorables;
+package com.stride.scorable;
 
 public class Pass implements Scorable {
     public int bedScore() {

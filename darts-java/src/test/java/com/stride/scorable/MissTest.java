@@ -1,13 +1,13 @@
-package com.stride.scorables;
+package com.stride.scorable;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class PassTest {
+public class MissTest {
     @Test
     public void hasAFixedBedValue() {
-        Assert.assertEquals(0, new Pass().bedScore());
+        Assert.assertEquals(0, new Miss().bedScore());
     }
 }
