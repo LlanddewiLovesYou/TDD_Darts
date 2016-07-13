@@ -1,6 +1,6 @@
 package com.stride;
 
-import com.stride.scorable.Scorable;
+import com.stride.bed.Scorable;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class Player {
