@@ -1,4 +1,4 @@
-require File.join('models', 'throw', 'miss')
+require 'darts'
 
 describe Throw::Miss do
   it 'should have a fixed bed value' do

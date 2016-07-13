@@ -1,4 +1,4 @@
-require File.join('models', 'throw', 'double')
+require 'darts'
 
 describe Throw::Double do
   it 'should double a valid bed value' do

@@ -1,4 +1,4 @@
-require File.join('models', 'throw', 'outer_bullseye')
+require 'darts'
 
 describe Throw::OuterBullseye do
   it 'should have a fixed bed value' do

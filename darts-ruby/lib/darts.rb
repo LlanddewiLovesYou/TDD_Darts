@@ -1,0 +1,8 @@
+require File.join('darts', 'game', 'player')
+require File.join('darts', 'models', 'throw', 'miss')
+require File.join('darts', 'models', 'throw', 'pass')
+require File.join('darts', 'models', 'throw', 'single')
+require File.join('darts', 'models', 'throw', 'double')
+require File.join('darts', 'models', 'throw', 'triple')
+require File.join('darts', 'models', 'throw', 'inner_bullseye')
+require File.join('darts', 'models', 'throw', 'outer_bullseye')

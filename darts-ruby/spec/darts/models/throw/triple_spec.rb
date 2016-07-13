@@ -1,4 +1,4 @@
-require File.join('models', 'throw', 'triple')
+require 'darts'
 
 describe Throw::Triple do
   it 'should triple a valid bed value' do

@@ -1,4 +1,4 @@
-require File.join('models', 'throw', 'single')
+require 'darts'
 
 describe Throw::Single do
   it 'should allow a valid bed value' do

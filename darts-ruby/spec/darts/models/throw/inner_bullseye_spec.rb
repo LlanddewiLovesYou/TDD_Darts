@@ -1,4 +1,4 @@
-require File.join('models', 'throw', 'inner_bullseye')
+require 'darts'
 
 describe Throw::InnerBullseye do
   it 'should have a fixed bed value' do
