@@ -1,4 +1,4 @@
-module Throw
+module Scorable
   class InnerBullseye
     def bed_score
       50

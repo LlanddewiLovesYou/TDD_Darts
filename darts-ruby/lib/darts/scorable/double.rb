@@ -1,4 +1,4 @@
-module Throw
+module Scorable
   class Double
     MULTIPLIER = 2
 

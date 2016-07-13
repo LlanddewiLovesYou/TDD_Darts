@@ -1,4 +1,4 @@
-module Throw
+module Scorable
   class Triple
     MULTIPLIER = 3
 

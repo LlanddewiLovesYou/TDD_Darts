@@ -1,4 +1,4 @@
-module Throw
+module Scorable
   class Single
     attr_reader :bed_score
 

@@ -1,4 +1,4 @@
-module Throw
+module Scorable
   class OuterBullseye
     def bed_score
       25

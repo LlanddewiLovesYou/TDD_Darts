@@ -1,7 +1,7 @@
 require 'darts'
 
-describe Throw::InnerBullseye do
+describe Scorable::InnerBullseye do
   it 'should have a fixed bed value' do
-    expect(Throw::InnerBullseye.new.bed_score).to eq(50)
+    expect(Scorable::InnerBullseye.new.bed_score).to eq(50)
   end
 end

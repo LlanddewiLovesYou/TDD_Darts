@@ -1,4 +1,4 @@
-module Throw
+module Scorable
   class Miss
     def bed_score
       0
