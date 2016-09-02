@@ -1,7 +1,6 @@
 require 'darts'
 
 describe Bed::Pass do
-  it 'should have a fixed bed value' do
-    expect(Bed::Pass.new.bed_score).to eq(0)
-  end
+  subject { Bed::Pass.new.bed_score }
+  it { is_expected.to be_zero }
 end
