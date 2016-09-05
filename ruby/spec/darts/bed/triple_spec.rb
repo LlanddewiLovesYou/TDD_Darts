@@ -1,5 +1,3 @@
-require 'darts'
-
 describe Bed::Triple do
   it 'should triple a valid bed value' do
     expect(Bed::Triple.new(3).bed_score).to eq(9)

@@ -1,5 +1,3 @@
-require 'darts'
-
 describe Bed::Single do
   it 'should allow a valid bed value' do
     expect(Bed::Single.new(5).bed_score).to eq(5)

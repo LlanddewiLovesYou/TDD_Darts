@@ -1,5 +1,3 @@
-require 'darts'
-
 describe Bed::Double do
   it 'should double a valid bed value' do
     expect(Bed::Double.new(10).bed_score).to eq(20)
