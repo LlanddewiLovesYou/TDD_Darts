@@ -1,8 +1,1 @@
-require File.join('darts', 'game', 'player')
-require File.join('darts', 'bed', 'miss')
-require File.join('darts', 'bed', 'pass')
-require File.join('darts', 'bed', 'single')
-require File.join('darts', 'bed', 'double')
-require File.join('darts', 'bed', 'triple')
-require File.join('darts', 'bed', 'inner_bullseye')
-require File.join('darts', 'bed', 'outer_bullseye')
+Dir.glob(File.join(File.dirname(__FILE__), '**', '*.rb')) { |file| require file }
