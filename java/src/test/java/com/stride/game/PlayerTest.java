@@ -1,4 +1,4 @@
-package com.stride;
+package com.stride.game;
 
 public class PlayerTest {
 }

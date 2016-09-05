@@ -1,4 +1,4 @@
-package com.stride;
+package com.stride.game;
 
 import com.stride.bed.Scorable;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
