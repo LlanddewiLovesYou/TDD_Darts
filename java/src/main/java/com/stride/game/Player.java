@@ -1,16 +1,13 @@
 package com.stride.game;
 
 import com.stride.bed.Scorable;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class Player {
-
     public int score() {
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
 
     public void turn(Scorable firstThrow, Scorable secondThrow, Scorable thirdThrow) {
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
-
 }
