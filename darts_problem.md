@@ -37,8 +37,15 @@ Refer to the following diagram for an example of sample scores:
 
 ## Example Game
 
-![Example Game Scoring](images/sample_game.png?raw=true 'Example Game')
-Note: row 5: resets to 96 because the score reached is 1 because the game cannot be won.
+| 1st Throw | 2nd Throw | 3rd Throw | 1st Score | 2nd Score | 3rd Score | Turn Total | Tally      | Running Total |
+|-----------|-----------|-----------|-----------|-----------|-----------|------------|------------|---------------|
+| T20       | T20       | T20       | 60        | 60        | 60        | 180        | 501-180    | 321           |
+| D10       | T20       | S20       | 20        | 60        | 20        | 100        | 321-100    | 221           |
+| T15       | D10       | T20       | 45        | 20        | 60        | 125        | 221-125    | 96            |
+| T18       | D20       | S1        | 54        | 40        | 1         | 95         | 96-95      | 96            |
+| IB        | D20       | D3        | 50        | 40        | 6         | 96         | 96-96      | 0             |
+
+Note: row 5 resets to 96 because the score reached is 1 because the game cannot be won.
 
 ## The Story
 
