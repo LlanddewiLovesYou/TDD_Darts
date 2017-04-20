@@ -1,3 +1,3 @@
 describe Player do
-  subject { Player.new.score }
+  let(:player) { described_class.new }
 end
