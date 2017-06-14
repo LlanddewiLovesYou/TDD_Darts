@@ -2,7 +2,7 @@ const DOUBLE_MULTIPLIER = 2;
 
 class Double {
     constructor(bedValue) {
-        if (bedValue < 1) {
+        if (bedValue < 1 || bedValue > 20) {
             throw new RangeError('Bed score must be in range 1..20');
         }
         this.bedValue = bedValue * DOUBLE_MULTIPLIER;

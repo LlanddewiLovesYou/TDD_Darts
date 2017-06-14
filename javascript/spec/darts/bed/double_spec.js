@@ -9,5 +9,9 @@ describe('Double', () => {
         it('should raise exception when created with bed score just below minimum in range', () => {
             expect(() => { new Double(0) }).toThrowError(RangeError, 'Bed score must be in range 1..20');
         });
+
+        it('should raise exception when created with bed score just above maximum in range', () => {
+            expect(() => { new Double(21) }).toThrowError(RangeError, 'Bed score must be in range 1..20');
+        });
     });
 });
