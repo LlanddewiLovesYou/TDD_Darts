@@ -3,10 +3,11 @@ class Single {
         if (bedValue < 1) {
             throw new RangeError('Bed score must be in range 1..20');
         }
+        this.bedValue = bedValue;
     }
 
     bedScore() {
-        return 5;
+        return this.bedValue;
     }
 }
 
