@@ -5,5 +5,9 @@ describe('Single', () => {
         it('should allow a valid bed value', () => {
             expect(new Single(5).bedScore()).toEqual(5);
         });
+
+        it('it should raise exception when created with bed score just below minimum in range', () => {
+            expect(() => { new Single(0) }).toThrowError(RangeError, 'Bed score must be in range 1..20');
+        });
     });
 });
