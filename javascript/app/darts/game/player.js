@@ -1,11 +1,22 @@
 class Player {
-    score() {
-        throw new Error('Method not yet implemented')
-    };
+  constructor() {
+    this.points = 501;
+  }
 
-    turn() {
-        throw new Error('Method not yet implemented')
-    };
+  score() {
+    return this.points;
+  }
+
+  turn(...throws) {
+    const turn = [...throws];
+    let turnScore = 0;
+    turn.forEach(dart => {
+      turnScore = turnScore + dart.bedScore();
+    });
+    if (this.score() - turnScore > 0) {
+      this.points = this.points - turnScore;
+    }
+  }
 }
 
 module.exports = Player;
